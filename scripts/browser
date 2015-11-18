@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#i3-msg "workspace 2:; append_layout /home/luca/.config/i3/layouts/qutebrowser.json; exec --no-startup-id qutebrowser; exec --no-startup-id keepassx; workspace 2:"
+i3-msg "workspace 2:; append_layout /home/luca/.config/i3/layouts/qutebrowser.json; exec --no-startup-id qutebrowser; workspace 2:"
