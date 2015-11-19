@@ -1,0 +1,26 @@
+#!/bin/sh
+
+case "$1" in
+    temp)
+        notify-send -a "Temperatures" -u normal "$(temp_nc)"
+        ;;
+    disk)
+        #i3-msg exit
+        notify-send -a "Disk mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
+        ;;
+    ip)
+        notify-send -a "Public IP" -u normal "$(sh ~/.scripts/ip)"
+        ;;
+    cal)
+        notify-send -a "Calendar" -u normal "$(cal)"
+        ;;
+    bat)
+        notify-send -a "Battery" -u normal "$(acpi -a && acpi)"
+        ;;
+    updates)
+        notify-send -a "Available updates" -u normal "$(yaourt -Qu)"
+        ;;
+    *)
+        echo "Usage: $0 {temp|disk|ip|cal|bat|updates}"
+        exit 2
+esac
