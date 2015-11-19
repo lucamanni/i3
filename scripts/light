@@ -1,8 +1,0 @@
-#!/bin/sh
-
-brightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
-
-if (($brightness > 0)); then
-  let brightness=$brightness-942
-    echo "echo $brightness > /sys/class/backlight/intel_backlight/brightness" | sudo zsh
-fi
