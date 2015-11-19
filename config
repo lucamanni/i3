@@ -1,4 +1,9 @@
-# i3 config file by lucamanni88 PROVA
+#------------------------------------------------
+#--            	 Full Color I3                 --
+#--               by Luca Manni                --
+#--     http://lucamanni88.deviantart.com/     --
+#--     https://github.com/lucamanni           --
+#------------------------------------------------
 
 # {{{ Variables
 set $mod Mod4
