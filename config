@@ -70,7 +70,7 @@ exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec $nsi dunst &
-#exec $nsi udiskie -aNqs -f thunar &
+exec $nsi udiskie -aNqs -f pcmanfm &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
 exec $nsi sleep 4 && $scripts/screensaver
@@ -149,12 +149,16 @@ bindsym $mod+Shift+9 move container to workspace $WS9
 # {{{ Rules
 assign [class="URxvt"]                                      $WS1
 assign [class="Termite"]                                    $WS1
-assign [class="keepassx"]                                   $WS2
+assign [class="Keepassx"]                                   $WS8
 assign [class="chromium"]                                   $WS2
+assign [class="Opera"]                                      $WS2
 assign [class="Firefox"]                                    $WS2
 assign [class="Pcmanfm"]                                    $WS3
 assign [title="ranger"]                                     $WS3
 assign [class="Thunderbird"]                                $WS4
+assign [class="Pidgin"]                                     $WS4
+assign [class="Telegram"]                                   $WS4
+assign [class="Skype"]                                      $WS4
 assign [class="Viewnior"]                                   $WS5
 assign [class="Gpicview"]                                   $WS5
 assign [class="feh"]                                        $WS5
@@ -162,6 +166,7 @@ assign [class="Gimp"]                                       $WS5
 assign [class="Shotwell"]                                   $WS5
 assign [class="mplayer2"]                                   $WS6
 assign [class="Vlc"]                                        $WS6
+assign [class="Gtk-recordMyDesktop"]                        $WS6
 assign [class="bomi"]                                       $WS6
 assign [class="mpv"]                                        $WS6
 assign [class="guvcview"]                                   $WS6
@@ -172,10 +177,11 @@ assign [class="nuvolaplayer3"]                              $WS7
 assign [class="nuvolaplayer3-deezer"]                       $WS7
 assign [class="nuvolaplayer3-google-play-music"]            $WS7
 assign [class="Okular"]                                     $WS8
+assign [instance="libreoffice"]                             $WS8
+assign [class="VirtualBox"]                                 $WS8
 assign [class="sublime_text"]                               $WS8
 assign [class="Mousepad"]                                   $WS8
 assign [class="Zathura"]                                    $WS8
-assign [class="Yad"]                                        $WS8
 assign [class="Pamac-updater"]                              $WS8
 assign [class="Pamac-manager"]                              $WS8
 assign [class="Galculator"]                                 $WS8
@@ -190,7 +196,7 @@ assign [class="Guvcview"]                                   $WS9
 for_window [class="URxvt"]                                  focus
 for_window [class="Termite"]                                focus
 for_window [class="chromium"]                               focus
-for_window [class="keepassx"]                               focus
+for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
 for_window [class="Pcmanfm"]                                focus
 for_window [class="Gpicview"]                               focus
@@ -203,6 +209,7 @@ for_window [class="sublime_text"]                           focus
 for_window [class="Mousepad"]                               focus
 for_window [class="mplayer2"]                               focus
 for_window [class="Vlc"]                                    focus
+for_window [class="Gtk-recordMyDesktop"]                    floating enable, focus, move absolute center, border normal
 for_window [class="bomi"]                                   focus
 for_window [class="mpv"]                                    focus
 for_window [class="Pragha"]                                 focus
@@ -211,8 +218,11 @@ for_window [class="nuvolaplayer3-deezer"]                   focus
 for_window [class="nuvolaplayer3-google-play-music"]        focus
 for_window [instance="spotify"]                             focus, border normal
 for_window [class="Tomahawk"]                               focus, border normal
-for_window [instance="Toplevel"]                            floating enable
-for_window [class="Yad"]                                    floating enable, border normal, focus, move absolute center
+for_window [instance="Abp"]                                 floating enable, border normal, focus, move absolute center
+for_window [instance="Toplevel"]                            floating enable, border normal, focus, move absolute center
+for_window [instance="Places"]                              floating enable, border normal, focus, move absolute center
+for_window [instance="Zoompage-options"]                    floating enable, border normal, focus, move absolute center
+for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [class="Pamac-updater"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Pamac-manager"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Nitrogen"]                               floating enable, border normal, focus, move absolute center
@@ -230,6 +240,11 @@ for_window [class="Ssvnc.tcl"]                              floating enable, foc
 for_window [class="Ssvnc"]                                  floating enable, focus, move absolute center
 for_window [window_role="pop-up"]                           floating enable
 for_window [class="Kodi"]                                   fullscreen enable, focus, border none
+for_window [class="Opera"]                                  focus
+for_window [window_role="conversation"]                     floating enable, focus, border normal, move absolute center
+for_window [class="Telegram"]                               floating enable, focus, border normal, move absolute center
+for_window [class="Xarchiver"]                              floating enable, focus, border normal, move absolute center
+for_window [window_role="Msgcompose"]                       floating enable, focus, border normal, move absolute center
 # }}}
 # {{{ Key Nindings
 bindsym    $mod+c                 kill
@@ -257,9 +272,11 @@ bindsym    XF86Suspend            exec $nsi $scripts/screensaver-toogle
 #bindsym Control+Shift+Up       exec $nsi $scripts/dvol increase
 #bindsym Control+Shift+minus    exec $nsi $scripts/dvol mute
 
-bindsym Control+Shift+Down     exec $nsi $scripts/dvol2 -d 5
-bindsym Control+Shift+Up       exec $nsi $scripts/dvol2 -i 5
-bindsym Control+Shift+minus    exec $nsi $scripts/dvol2 -t
+bindsym Control+Shift+Down        exec $nsi $scripts/dvol2 -d 5
+bindsym Control+Shift+Up          exec $nsi $scripts/dvol2 -i 5
+bindsym Control+Shift+minus       exec $nsi $scripts/dvol2 -t
+
+bindsym $r Control+$alt+w         exec $nsi /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
 
 bindsym $r $mod+Shift+x           exec $nsi class
 bindsym $r $mod+x                 exec $nsi xkill
