@@ -9,6 +9,11 @@ override_utf8_locale    yes
 
 TEXT
 ,[{                 "full_text": " ",                                                                           "separator": false},
+${if_mpd_playing}   {"name": "mpd", "full_text": "$mpd_random",                                         "color": "\#ecedee", "separator_block_width": 12}, ${endif}
+${if_mpd_playing}   {"name": "mpd", "full_text": " ",                                                  "color": "\#33B6BA", "separator_block_width": 5}, ${endif}
+${if_mpd_playing}   {"name": "mpd", "full_text": "$mpd_title",                                          "color": "\#33B6BA", "separator_block_width": 5}, ${endif}
+${if_mpd_playing}   {"name": "mpd", "full_text": "-",                                                   "color": "\#565656", "separator_block_width": 5}, ${endif}
+${if_mpd_playing}   {"name": "mpd", "full_text": "$mpd_artist",                                         "color": "\#ecedee", "separator_block_width": 12}, ${endif}
 {"name": "spotify", "full_text": "${exec .config/i3/scripts/spotify-nowplaying.sh}",                            "color": "\#96CA62", "separator_block_width": 12},
 {"name": "volume",  "full_text": "${exec /home/luca/.config/i3/scripts/pacvol.sh display}",                     "color": "\#8BADF9"},
 #${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "wifi", "full_text": " ${wireless_link_qual_perc wlp2s0}%", "color": "\#33B6BA"}, ${endif}
@@ -16,7 +21,7 @@ TEXT
 {"name": "net_up",  "full_text": " ${upspeed wlp2s0}",                                                         "color": "\#FF797b"},
 #{"name": "cpu",     "full_text": "  {${cpu cpu1}.${cpu cpu2}.${cpu cpu3}.${cpu cpu4}}",                       "color": "\#8BC3E7"},
 {"name": "cpu",     "full_text": "  ${cpu}%",                                                                  "color": "\#8BC3E7"},
-{"name": "temp",    "full_text": " ${acpitemp}°C",                                                             "color": "\#B987D9"},
+{"name": "temp",    "full_text": " ${acpitemp}",                                                               "color": "\#B987D9"},
 {"name": "mem",     "full_text": "  ${mem}",                                                                   "color": "\#F3D194"},
 {"name": "home",    "full_text": "  ${fs_free /}",                                                             "color": "\#FF9D17"},
 #{"name": "home",    "full_text": "  ${fs_free /}",                                                            "color": "\#FF9D17", "separator_block_width": 2},

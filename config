@@ -74,6 +74,7 @@ exec $nsi udiskie -aNqs -f pcmanfm &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
 exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
+exec $nsi mpd ~/.mpd/mpd.conf &
 exec $nsi sleep 4 && $scripts/screensaver &
 # }}}
 # {{{ Navigation
@@ -260,6 +261,7 @@ bindsym    $mod+Shift+Return      exec $nsi urxvt -e tmux
 bindsym    $mod+f                 exec $nsi urxvt -title ranger -e ranger
 bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ranger
 bindsym    $mod+Control+u         exec $nsi urxvt -title updating -e yaourt -Syyua --noconfirm
+bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
 bindsym $r $mod+w                 exec $nsi firefox
 bindsym $r $mod+$alt+w            exec $nsi chromium
@@ -274,13 +276,15 @@ bindsym    XF86MonBrightnessDown  exec $nsi $scripts/lightdown
 bindsym    XF86MonBrightnessUp    exec $nsi $scripts/lightup
 bindsym    XF86Suspend            exec $nsi $scripts/screensaver-toogle
 
-#bindsym Control+Shift+Down     exec $nsi $scripts/dvol decrease
-#bindsym Control+Shift+Up       exec $nsi $scripts/dvol increase
-#bindsym Control+Shift+minus    exec $nsi $scripts/dvol mute
-
 bindsym Control+Shift+Down        exec $nsi $scripts/dvol2 -d 5
 bindsym Control+Shift+Up          exec $nsi $scripts/dvol2 -i 5
 bindsym Control+Shift+minus       exec $nsi $scripts/dvol2 -t
+
+bindsym $alt+Up                   exec $nsi mpc toggle
+bindsym $alt+Down                 exec $nsi mpc stop
+bindsym $alt+Left                 exec $nsi mpc prev
+bindsym $alt+Right                exec $nsi mpc next
+bindsym $mod+$alt+Down            exec $nsi mpc random
 
 bindsym $r Control+$alt+w         exec $nsi /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
 
