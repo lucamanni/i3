@@ -123,6 +123,7 @@ set $WS6 6:
 set $WS7 7:
 set $WS8 8:
 set $WS9 9:
+set $WS10 10:
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -177,6 +178,8 @@ assign [class="nuvolaplayer3"]                              $WS7
 assign [class="nuvolaplayer3-deezer"]                       $WS7
 assign [class="nuvolaplayer3-google-play-music"]            $WS7
 assign [class="Okular"]                                     $WS8
+assign [class="Unetbootin.elf"]                             $WS8
+assign [class="Catfish"]                                    $WS8
 assign [instance="libreoffice"]                             $WS8
 assign [class="VirtualBox"]                                 $WS8
 assign [class="sublime_text"]                               $WS8
@@ -190,8 +193,8 @@ assign [class="XFontSel"]                                   $WS8
 assign [class="Nitrogen"]                                   $WS8
 assign [class="Ssvnc.tcl"]                                  $WS8
 assign [class="Ssvnc"]                                      $WS8
-assign [class="Kodi"]                                       $WS9
 assign [class="Guvcview"]                                   $WS9
+assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
 for_window [class="Termite"]                                focus
@@ -225,6 +228,7 @@ for_window [instance="Zoompage-options"]                    floating enable, bor
 for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [class="Pamac-updater"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Pamac-manager"]                          floating enable, border normal, focus, move absolute center
+for_window [class="Unetbootin.elf"]                         floating enable, border normal, focus, move absolute center
 for_window [class="Nitrogen"]                               floating enable, border normal, focus, move absolute center
 for_window [class="Polkit-gnome-authentication-agent-1"]    floating enable, border normal, focus, move absolute center
 for_window [class="Lxappearance"]                           floating enable, border normal, focus, move absolute center
@@ -232,6 +236,7 @@ for_window [class="Pavucontrol"]                            floating enable, bor
 for_window [class="Galculator"]                             floating enable, border normal, focus, move absolute center
 for_window [class="XCalc"]                                  floating enable, border normal, focus, move absolute center
 for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
+for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
 for_window [class="Guvcview"]                               floating enable, border normal, move absolute center
 for_window [class="guvcview"]                               floating enable, border normal, focus, move absolute center
 for_window [class="Xmessage"]                               floating enable, focus, move absolute center

@@ -23,17 +23,24 @@ while read;do
       notify-send -a "Calendar" -u normal "$(cal)"
       #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
       ;;
+    \"time\")
+      notify-send -a "Calendar" -u normal "$(cal)"
+      #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
+      ;;
     \"temp\")
       notify-send -a "Temperatures" -u normal "$(temp_nc)"
       ;;
     \"bat\")
-      notify-send -a "Battery" -u normal "$(acpi -a && acpi)"
+      notify-send -a "Battery" -u normal "$(sh ~/.config/i3/scripts/battery)"
       ;;
     \"net_up\")
-      notify-send -a "External IP" -u normal "$(sh ~/.scripts/ip)"
+      notify-send -a "External IP" -u normal "$(sh ~/.config/i3/scripts/ip-external)"
       ;;
     \"net_down\")
-      notify-send -a "Internal IP" -u normal "$(sh ~/.scripts/ip2)"
+      notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)"
+      ;;
+    \"kernel\")
+      notify-send -a "Memo" -u normal "$(cat ~/.memo)"
       ;;
     \"disk\")
       notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
@@ -44,21 +51,24 @@ while read;do
     \"mem\")
       notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)"
       ;;
-    \"bright\")
-      LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
-      OUT=`yad --scale --value $LEVEL --button gtk-ok:0 --geometry=100x300+$X+20 --class "YADWIN" --vertical --text-align center`
-      if [[ $? -eq 0 ]];then
-        Q=`/home/luca/.config/i3/scripts/conkexec.sh sudo light $OUT`
-      fi
-      ;;
+    #\"bright\")
+      #LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
+      #OUT=`yad --scale --value $LEVEL --button gtk-ok:0 --geometry=100x300+$X+20 --class "YADWIN" --vertical --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #Q=`/home/luca/.config/i3/scripts/conkexec.sh sudo light $OUT`
+      #fi
+      #;;
     \"volume\")
-      VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
-      OUT=`yad --text="Volume" --scale --value $VOL --button gtk-ok:0 --geometry=x200+$X+20 --class "YADWIN" --vertical --text-align center`
-      if [[ $? -eq 0 ]];then
-        TARGET="$((655*$OUT))"
-        /home/luca/.config/i3/scripts/conkexec.sh pacmd set-sink-volume 0 $TARGET
-      fi
+      pavucontrol
       ;;
+    #\"volume\")
+      #VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
+      #OUT=`yad --text="Volume" --scale --value $VOL --button gtk-ok:0 --geometry=x200+$X+20 --class "YADWIN" --vertical --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #TARGET="$((655*$OUT))"
+        #/home/luca/.config/i3/scripts/conkexec.sh pacmd set-sink-volume 0 $TARGET
+      #fi
+      #;;
     *)
       ;;
   esac

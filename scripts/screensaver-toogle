@@ -7,6 +7,6 @@ if [ "$DPMS" == "" ]; then
 else
 	xset +dpms
     xset dpms 600
-    killall xss-lock && xss-lock -- i3lock -d -p default -i /home/luca/Immagini/Wallpapers/wall.png &
+    killall xss-lock && xss-lock -- i3lock -d -p default -i /media/Dati/Dropbox/Wallpapers/suburb.png &
 	notify-send -t 500 -a "Screensaver" "Enabled"
 fi;

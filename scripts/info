@@ -6,16 +6,16 @@ case "$1" in
         ;;
     disk)
         #i3-msg exit
-        notify-send -a "Disk mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
+        notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
         ;;
     ip)
-        notify-send -a "Public IP" -u normal "$(sh ~/.scripts/ip)"
+        notify-send -a "External IP" -u normal "$(sh ~/.config/i3/scripts/ip-external)"
         ;;
     cal)
         notify-send -a "Calendar" -u normal "$(cal)"
         ;;
     bat)
-        notify-send -a "Battery" -u normal "$(acpi -a && acpi)"
+        notify-send -a "Battery" -u normal "$(sh ~/.config/i3/scripts/battery)"
         ;;
     updates)
         notify-send -a "Available updates" -u normal "$(yaourt -Qu)"

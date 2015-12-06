@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ADAPTER=`acpi -a | cut -c 12-60`
+BATTERY=`acpi | cut -c 12-60`
+UPTIME=`uptime | cut -c 15-18`
+
+echo -e "Adapter: "" $ADAPTER ";
+echo -e "Battery: "" $BATTERY ";
+echo -e "Uptime:  "" $UPTIME ";
