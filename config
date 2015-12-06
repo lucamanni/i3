@@ -73,7 +73,8 @@ exec $nsi dunst &
 exec $nsi udiskie -aNqs -f pcmanfm &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
-exec $nsi sleep 4 && $scripts/screensaver
+exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
+exec $nsi sleep 4 && $scripts/screensaver &
 # }}}
 # {{{ Navigation
 bindsym $mod+Shift+y move absolute position center

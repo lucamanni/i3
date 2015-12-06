@@ -40,7 +40,7 @@ while read;do
       notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)"
       ;;
     \"kernel\")
-      notify-send -a "Memo" -u normal "$(cat ~/.memo)"
+      notify-send -a "Memo" -u normal "$(cat ~/.reminders)"
       ;;
     \"disk\")
       notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
