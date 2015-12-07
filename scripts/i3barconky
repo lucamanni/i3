@@ -19,37 +19,62 @@ while read;do
         urxvt -H --command "/home/luca/.config/i3/scripts/conkexec.sh sudo pacmatic -Syu" -T "Menu Update"
       fi
       ;;
+    \"mpd_i\")
+      mpc --quiet toggle &
+      ;;
+    \"mpd_r\")
+      mpc --quiet random &
+      ;;
+    \"mpd_t\")
+      mpc --quiet prev &
+      ;;
+     \"mpd_a\")
+      mpc --quiet next &
+      ;;
+     \"mpd_-\")
+      mpc --quiet stop &
+      ;;
+     \"mpd_b\")
+      urxvt -title music -e ncmpcpp &
+      ;;
     \"date\")
-      notify-send -a "Calendar" -u normal "$(cal)"
+      notify-send -a "Calendar" -u normal "$(cal)" &
       #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
       ;;
+     \"date_i\")
+      yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar &
+      sleep 10 && killall yad
+      ;;
     \"time\")
-      notify-send -a "Calendar" -u normal "$(cal)"
+      notify-send -a "Calendar" -u normal "$(cal)" &
       #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
       ;;
     \"temp\")
-      notify-send -a "Temperatures" -u normal "$(temp_nc)"
+      notify-send -a "Temperatures" -u normal "$(temp_nc)" &
       ;;
     \"bat\")
-      notify-send -a "Battery" -u normal "$(sh ~/.config/i3/scripts/battery)"
+      notify-send -a "Battery" -u normal "$(sh ~/.config/i3/scripts/battery)" &
       ;;
     \"net_up\")
-      notify-send -a "External IP" -u normal "$(sh ~/.config/i3/scripts/ip-external)"
+      notify-send -a "External IP" -u normal "$(sh ~/.config/i3/scripts/ip-external)" &
       ;;
     \"net_down\")
-      notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)"
+      notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)" &
       ;;
     \"kernel\")
-      notify-send -a "Memo" -u normal "$(cat ~/.reminders)"
+      notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
       ;;
     \"disk\")
-      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
+      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
       ;;
     \"home\")
-      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)"
+      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
+      ;;
+    \"fsicon\")
+      pcmanfm &
       ;;
     \"mem\")
-      notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)"
+      notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &
       ;;
     #\"bright\")
       #LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
@@ -59,7 +84,7 @@ while read;do
       #fi
       #;;
     \"volume\")
-      pavucontrol
+      pavucontrol &
       ;;
     #\"volume\")
       #VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
