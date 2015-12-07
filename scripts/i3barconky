@@ -13,11 +13,11 @@ while read;do
   X=$(($X-50))
   case "${NAME}" in
     \"updates\")
-      notify-send -a "Available updates" -u normal "$(yaourt -Qu)"
+      notify-send -a "Available updates" -u normal "$(yaourt -Qu)" &
       #yad --button gtk-apply:0 --text-info --geometry=200x200+$X+20 --class "YADWIN" --margins=10 --filename=<(pacman -Sup --print-format="%n %v" | grep -v "^::")
-      if [[ $? -eq 0 ]];then
-        urxvt -H --command "/home/luca/.config/i3/scripts/conkexec.sh sudo pacmatic -Syu" -T "Menu Update"
-      fi
+      #if [[ $? -eq 0 ]];then
+        #urxvt -H --command "/home/luca/.config/i3/scripts/conkexec.sh sudo pacmatic -Syu" -T "Menu Update"
+      #fi
       ;;
     \"mpd_i\")
       mpc --quiet toggle &
@@ -39,15 +39,13 @@ while read;do
       ;;
     \"date\")
       notify-send -a "Calendar" -u normal "$(cal)" &
-      #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
       ;;
      \"date_i\")
       yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar &
-      sleep 10 && killall yad
+      sleep 10 && killall yad &
       ;;
     \"time\")
-      notify-send -a "Calendar" -u normal "$(cal)" &
-      #yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
+      keepassx &
       ;;
     \"temp\")
       notify-send -a "Temperatures" -u normal "$(temp_nc)" &
@@ -61,11 +59,14 @@ while read;do
     \"net_down\")
       notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)" &
       ;;
+    \"net_up_i\")
+      opera &
+      ;;
+     \"net_down_i\")
+      chromium &
+      ;;
     \"kernel\")
       notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
-      ;;
-    \"disk\")
-      notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
       ;;
     \"home\")
       notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
@@ -75,6 +76,12 @@ while read;do
       ;;
     \"mem\")
       notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &
+      ;;
+    \"bright\")
+      ~/.config/i3/scripts/lightdown &
+      ;;
+     \"bright_i\")
+      ~/.config/i3/scripts/lightup &
       ;;
     #\"bright\")
       #LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
