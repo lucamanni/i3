@@ -57,6 +57,7 @@ bar {
 
 # Titlebars
 new_window 1pixel
+#new_window normal
 new_float normal
 #bindsym $mod+t border normal
 #bindsym $mod+y border 1pixel
@@ -237,6 +238,7 @@ for_window [class="Lxappearance"]                           floating enable, bor
 for_window [class="Pavucontrol"]                            floating enable, border normal, focus, move absolute center
 for_window [class="Galculator"]                             floating enable, border normal, focus, move absolute center
 for_window [class="XCalc"]                                  floating enable, border normal, focus, move absolute center
+for_window [instance="DTA"]                                 floating enable, border normal, focus, move absolute center
 for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
 for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
 for_window [class="Guvcview"]                               floating enable, border normal, move absolute center
@@ -255,6 +257,23 @@ for_window [window_role="Msgcompose"]                       floating enable, foc
 # }}}
 # {{{ Key Nindings
 bindsym    $mod+c                 kill
+
+bindsym $mod+r reload
+#bindsym $mod+r restart
+
+# The middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# The middle button and a modifer over any part of the window kills the window
+bindsym --whole-window $mod+button2 kill
+
+# The right button toggles floating
+#bindsym button3 floating toggle
+#bindsym $mod+button3 floating toggle
+
+# The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
 
 bindsym    $mod+Return            exec $nsi urxvt
 bindsym    $mod+Shift+Return      exec $nsi urxvt -e tmux 
@@ -323,6 +342,4 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-#bindsym $mod+r reload
-bindsym $mod+r restart
 # }}}
