@@ -1,0 +1,4 @@
+#!/bin/bash
+
+i3-msg "workspace 4:; exec --no-startup-id /opt/MessengerForDesktop/Messenger; exec --no-startup-id /usr/bin/chromium --profile-directory=Default --app-id=bllmngcdibgbgjnginpehneeofhbmdjm; workspace 4:" &
+sleep 2 && i3-msg "layout tabbed" &
