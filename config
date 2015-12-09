@@ -12,29 +12,25 @@ set $i3 /home/luca/.config/i3
 set $scripts /home/luca/.config/i3/scripts
 set $nsi --no-startup-id
 set $r --release
+set $w --whole-window
 floating_modifier $mod
 workspace_auto_back_and_forth yes
 # vim: set ft=conf ts=4 sw=4 tw=500 et :
 # vim:filetype=i3
 # }}}
 # {{{ Appearance
-
 # Font
 font pango:Terminus 11px
-
-# Layout colors                 border              bg        text 
-client.focused                  "#242C33" "#242C33" "#BBBBBB" "#4F4F4F"
-client.focused_inactive         "#080808" "#080808" "#424242" "#121212"
-client.unfocused                "#080808" "#080808" "#4F4F4F" "#1A1A1A"
-client.urgent                   "#242C33" "#3B89B5" "#a5a5a5" "#1A1A1A"
+# Layout colors                 background          fg        border
+client.focused                  "#242C33" "#242C33" "#ff797b" "#242c33"
+client.focused_inactive         "#242C33" "#242c33" "#aaaaaa" "#242c33"
+client.unfocused                "#242c33" "#242c33" "#aaaaaa" "#242c33"
+client.urgent                   "#242C33" "#242c33" "#fd9c17"
 client.background               "#242C33"
-
 # Bar
-
 #bar {
 #    i3bar_command sh .config/i3/lemonbar/i3_lemonbar.sh
 #    }
-
 bar {
         #status_command i3status
         
@@ -54,7 +50,6 @@ bar {
         }
 
 }
-
 # Titlebars
 new_window 1pixel
 #new_window normal
@@ -63,7 +58,6 @@ new_float normal
 #bindsym $mod+y border 1pixel
 #bindsym $mod+u border none
 bindsym $mod+y exec $nsi i3-msg border toggle
-
 # }}}
 # {{{ Autostart
 exec $nsi $scripts/light &
@@ -102,7 +96,6 @@ bindsym $r $mod+Tab exec $nsi rofi -show window -font "tewi 10" -fg "#bbbbbb" -b
 bindsym $r $mod+$alt+m exec $nsi rofi -show run -font "tewi 10" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
 # }}}
 # {{{ Resize
-
 mode "resize" {
         bindsym Right resize shrink width 10 px or 10 ppt
         bindsym Up resize grow height 10 px or 10 ppt
@@ -114,7 +107,6 @@ mode "resize" {
 }
 
 bindsym $alt+r mode "resize"
-
 # }}}
 # {{{ Workspaces
 set $WS1 1:
@@ -149,18 +141,19 @@ bindsym $mod+Shift+6 move container to workspace $WS6
 bindsym $mod+Shift+7 move container to workspace $WS7
 bindsym $mod+Shift+8 move container to workspace $WS8
 bindsym $mod+Shift+9 move container to workspace $WS9
-# }}}za
+# }}}
 # {{{ Rules
 assign [class="URxvt"]                                      $WS1
 assign [class="Termite"]                                    $WS1
-assign [class="Keepassx"]                                   $WS8
-assign [class="chromium"]                                   $WS2
 assign [class="Opera"]                                      $WS2
-assign [class="Firefox"]                                    $WS2
 assign [class="Pcmanfm"]                                    $WS3
 assign [title="ranger"]                                     $WS3
+assign [instance="crx_ioekoebejdcmnlefjiknokhhafglcjdl"]    $WS3
+assign [instance="crx_apdfllckaahabafndbhieahigkjlhalf"]    $WS3
 assign [class="Thunderbird"]                                $WS4
 assign [class="Pidgin"]                                     $WS4
+assign [title="Messenger"]                                  $WS4
+assign [instance="crx_bgkodfmeijboinjdegggmkbkjfiagaan"]    $WS4
 assign [class="Telegram"]                                   $WS4
 assign [class="Skype"]                                      $WS4
 assign [class="Viewnior"]                                   $WS5
@@ -168,19 +161,29 @@ assign [class="Gpicview"]                                   $WS5
 assign [class="feh"]                                        $WS5
 assign [class="Gimp"]                                       $WS5
 assign [class="Shotwell"]                                   $WS5
+assign [instance="crx_nmkdidpgfemfnijimfoophcplgogbacp"]    $WS6
+assign [instance="crx_blpcfgokakmgnkcojhhkbfbldkacnbeo"]    $WS6
+assign [title="vGet Cast"]                                  $WS6
 assign [class="mplayer2"]                                   $WS6
 assign [class="Vlc"]                                        $WS6
+assign [title="TorrentStream"]                              $WS6
 assign [class="Gtk-recordMyDesktop"]                        $WS6
 assign [class="bomi"]                                       $WS6
 assign [class="mpv"]                                        $WS6
 assign [class="guvcview"]                                   $WS6
+assign [title="Deezer Shortcut"]                            $WS7
+assign [instance="crx_icppfcnhkcmnfdhfhphakoifcfokfdhg"]    $WS7
+assign [instance="crx_cbiapabbjlfcbfoedilflhnifandagoh"]    $WS7
+assign [instance="crx_ahnjfaipcnkkaepmlkobfohnlmdpfflm"]    $WS7
+assign [instance="crx_hhkolpgedpldcfmkgbdokgiljfbblpfj"]    $WS7
+assign [instance="crx_jhgkinonbcanhcglhghmagakkaomeiaj"]    $WS7
 assign [class="Pragha"]                                     $WS7
-assign [class="Tomahawk"]                                   $WS7
 assign [class="Anoise.py"]                                  $WS7
 assign [class="nuvolaplayer3"]                              $WS7
 assign [class="nuvolaplayer3-deezer"]                       $WS7
 assign [class="nuvolaplayer3-google-play-music"]            $WS7
 assign [class="Okular"]                                     $WS8
+assign [class="Keepassx"]                                   $WS8
 assign [class="Unetbootin.elf"]                             $WS8
 assign [class="Catfish"]                                    $WS8
 assign [instance="libreoffice"]                             $WS8
@@ -196,7 +199,9 @@ assign [class="XFontSel"]                                   $WS8
 assign [class="Nitrogen"]                                   $WS8
 assign [class="Ssvnc.tcl"]                                  $WS8
 assign [class="Ssvnc"]                                      $WS8
-assign [class="Guvcview"]                                   $WS9
+assign [class="qt5ct"]                                      $WS9
+assign [instance="crx_lneaknkopdijkpnocmklfnjbeapigfbh"]    $WS9
+assign [instance="crx_dokhhdohljjhoojogddojcpblnplacca"]    $WS9
 assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
@@ -215,20 +220,41 @@ for_window [class="sublime_text"]                           focus
 for_window [class="Mousepad"]                               focus
 for_window [class="mplayer2"]                               focus
 for_window [class="Vlc"]                                    focus
-for_window [class="Gtk-recordMyDesktop"]                    floating enable, focus, move absolute center, border normal
 for_window [class="bomi"]                                   focus
 for_window [class="mpv"]                                    focus
+for_window [class="Opera"]                                  focus
 for_window [class="Pragha"]                                 focus
 for_window [class="nuvolaplayer3"]                          focus
+for_window [title="Deezer Shortcut"]                        focus
 for_window [class="nuvolaplayer3-deezer"]                   focus
 for_window [class="nuvolaplayer3-google-play-music"]        focus
+for_window [instance="crx_lneaknkopdijkpnocmklfnjbeapigfbh"] focus
+for_window [instance="crx_bgkodfmeijboinjdegggmkbkjfiagaan"] focus
+for_window [instance="crx_ioekoebejdcmnlefjiknokhhafglcjdl"] focus
+for_window [instance="crx_apdfllckaahabafndbhieahigkjlhalf"] focus
+for_window [instance="crx_blpcfgokakmgnkcojhhkbfbldkacnbeo"] focus
+for_window [instance="crx_dokhhdohljjhoojogddojcpblnplacca"] focus
+for_window [instance="crx_nmkdidpgfemfnijimfoophcplgogbacp"] focus
+for_window [instance="crx_icppfcnhkcmnfdhfhphakoifcfokfdhg"] focus
+for_window [instance="crx_cbiapabbjlfcbfoedilflhnifandagoh"] focus
+for_window [instance="crx_ahnjfaipcnkkaepmlkobfohnlmdpfflm"] focus
+for_window [instance="crx_hhkolpgedpldcfmkgbdokgiljfbblpfj"] focus
+for_window [instance="crx_jhgkinonbcanhcglhghmagakkaomeiaj"] focus
+for_window [window_role="pop-up"]                           floating enable
 for_window [instance="spotify"]                             focus, border normal
-for_window [class="Tomahawk"]                               focus, border normal
+for_window [class="YADWIN"]                                 floating enable, border 1px, focus
+for_window [title="vGet Cast"]                              floating enable, focus, border normal
+for_window [class="Kodi"]                                   fullscreen enable, focus, border none
+for_window [class="Xfce4-appfinder"]                        floating enable, border 1px, focus, move absolute center
+for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
+for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
+for_window [class="Guvcview"]                               floating enable, border normal, move absolute center
+for_window [class="Gtk-recordMyDesktop"]                    floating enable, border normal, focus, move absolute center
 for_window [instance="Abp"]                                 floating enable, border normal, focus, move absolute center
+for_window [title="TorrentStream"]                          floating enable, border normal, focus, move absolute center
 for_window [instance="Toplevel"]                            floating enable, border normal, focus, move absolute center
 for_window [instance="Places"]                              floating enable, border normal, focus, move absolute center
 for_window [instance="Zoompage-options"]                    floating enable, border normal, focus, move absolute center
-for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [class="Pamac-updater"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Pamac-manager"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Unetbootin.elf"]                         floating enable, border normal, focus, move absolute center
@@ -239,41 +265,22 @@ for_window [class="Pavucontrol"]                            floating enable, bor
 for_window [class="Galculator"]                             floating enable, border normal, focus, move absolute center
 for_window [class="XCalc"]                                  floating enable, border normal, focus, move absolute center
 for_window [instance="DTA"]                                 floating enable, border normal, focus, move absolute center
-for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
-for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
-for_window [class="Guvcview"]                               floating enable, border normal, move absolute center
+for_window [class="qt5ct"]                                  floating enable, border normal, focus, move absolute center
 for_window [class="guvcview"]                               floating enable, border normal, focus, move absolute center
+for_window [class="Telegram"]                               floating enable, border normal, focus, move absolute center
+for_window [class="Xarchiver"]                              floating enable, border normal, focus, move absolute center
+for_window [window_role="Msgcompose"]                       floating enable, border normal, focus, move absolute center
 for_window [class="Xmessage"]                               floating enable, focus, move absolute center
 for_window [class="XFontSel"]                               floating enable, focus, move absolute center
 for_window [class="Ssvnc.tcl"]                              floating enable, focus, move absolute center
 for_window [class="Ssvnc"]                                  floating enable, focus, move absolute center
-for_window [window_role="pop-up"]                           floating enable
-for_window [class="Kodi"]                                   fullscreen enable, focus, border none
-for_window [class="Opera"]                                  focus
-for_window [window_role="conversation"]                     floating enable, focus, border normal, move absolute center
-for_window [class="Telegram"]                               floating enable, focus, border normal, move absolute center
-for_window [class="Xarchiver"]                              floating enable, focus, border normal, move absolute center
-for_window [window_role="Msgcompose"]                       floating enable, focus, border normal, move absolute center
+#for_window [window_role="conversation"]                     floating enable, focus, border normal, move absolute center
 # }}}
 # {{{ Key Nindings
+bindsym    $mod+r                 restart
 bindsym    $mod+c                 kill
-
-bindsym $mod+r reload
-bindsym $mod+Shift+r restart
-
-# The middle button over a titlebar kills the window
-bindsym --release button2 kill
-
-# The middle button and a modifer over any part of the window kills the window
-bindsym --whole-window $mod+button2 kill
-
-# The right button toggles floating
-#bindsym button3 floating toggle
-#bindsym $mod+button3 floating toggle
-
-# The side buttons move the window around
-bindsym button9 move left
-bindsym button8 move right
+bindsym $r button2                kill
+bindsym $w $mod+button2           kill
 
 bindsym    $mod+Return            exec $nsi urxvt
 bindsym    $mod+Shift+Return      exec $nsi urxvt -e tmux 
@@ -282,8 +289,8 @@ bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ra
 bindsym    $mod+Control+u         exec $nsi urxvt -title updating -e yaourt -Syyua --noconfirm
 bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
-bindsym $r $mod+w                 exec $nsi firefox
-bindsym $r $mod+$alt+w            exec $nsi chromium
+bindsym $r $mod+w                 exec $nsi firefox, workspace 2:
+bindsym $r $mod+$alt+w            exec $nsi chromium, workspace 2:
 bindsym $r $mod+$alt+t            exec $nsi thunderbird
 bindsym    $mod+p                 exec $nsi pcmanfm
 bindsym    $mod+$alt+p            exec $nsi sudo pcmanfm
@@ -295,15 +302,15 @@ bindsym    XF86MonBrightnessDown  exec $nsi $scripts/lightdown
 bindsym    XF86MonBrightnessUp    exec $nsi $scripts/lightup
 bindsym    XF86Suspend            exec $nsi $scripts/screensaver-toogle
 
-bindsym Control+Shift+Down        exec $nsi $scripts/dvol2 -d 5
-bindsym Control+Shift+Up          exec $nsi $scripts/dvol2 -i 5
-bindsym Control+Shift+minus       exec $nsi $scripts/dvol2 -t
+bindsym    Control+Shift+Down     exec $nsi $scripts/dvol2 -d 5
+bindsym    Control+Shift+Up       exec $nsi $scripts/dvol2 -i 5
+bindsym    Control+Shift+minus    exec $nsi $scripts/dvol2 -t
 
-bindsym $alt+Up                   exec $nsi mpc toggle
-bindsym $alt+Down                 exec $nsi mpc stop
-bindsym $alt+Left                 exec $nsi mpc prev
-bindsym $alt+Right                exec $nsi mpc next
-bindsym $mod+$alt+Down            exec $nsi mpc random
+bindsym    $alt+Up                exec $nsi mpc toggle
+bindsym    $alt+Down              exec $nsi mpc stop
+bindsym    $alt+Left              exec $nsi mpc prev
+bindsym    $alt+Right             exec $nsi mpc next
+bindsym    $mod+$alt+Down         exec $nsi mpc random
 
 bindsym $r Control+$alt+w         exec $nsi /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
 
@@ -313,8 +320,9 @@ bindsym $r Print                  exec $nsi $scripts/screenshot.sh
 bindsym $r $mod+h                 exec $nsi urxvt -title htop -e sudo htop
 bindsym $r $alt+m                 exec $nsi dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'tewi' -f -h 16 -p 'run application:'
 bindsym $r $alt+n                 exec $nsi sudo dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#ff797b' -sb '#242C33' -fn 'tewi' -f -h 16 -p 'run application as root:'
-#bindsym $r $mod+$alt+space        exec $nsi slingscold
-#za }}}
+bindsym $r $mod+$alt+space        exec $nsi xfce4-appfinder
+#bindsym $r $mod+$alt+space        exec $nsi j4-dmenu-desktop --dmenu="dmenu -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'tewi' -f -h 16 -p 'run application:'" --term="urxvt"
+# }}}
 # {{{ Info
 bindsym $alt+space mode "$mode_info"
 set $mode_info (b)at, (c)al, (d)isk, (i)p, (t)emp, (u)pdates

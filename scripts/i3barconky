@@ -35,17 +35,17 @@ while read;do
       mpc --quiet stop &
       ;;
      \"mpd_b\")
-      urxvt -title music -e ncmpcpp &
+      i3-msg -q "exec --no-startup-id urxvt -title music -e ncmpcpp" &
       ;;
     \"date\")
       notify-send -a "Calendar" -u normal "$(cal)" &
       ;;
      \"date_i\")
-      yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar &
+      i3-msg -q "exec --no-startup-id yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar" &
       sleep 10 && killall yad &
       ;;
     \"time\")
-      keepassx &
+      i3-msg -q "exec --no-startup-id keepassx" &
       ;;
     \"temp\")
       notify-send -a "Temperatures" -u normal "$(temp_nc)" &
@@ -60,22 +60,26 @@ while read;do
       notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)" &
       ;;
     \"net_up_i\")
-      opera &
+      i3-msg -q "exec --no-startup-id opera; workspace 2:" &
       ;;
      \"net_down_i\")
-      chromium &
+      i3-msg -q "exec --no-startup-id chromium; workspace 2:" &
       ;;
     \"kernel\")
-      notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
+      #notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
+      i3-msg -q "exec --no-startup-id xfce4-appfinder" &
       ;;
     \"home\")
       notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
       ;;
     \"fsicon\")
-      pcmanfm &
+      i3-msg -q "exec --no-startup-id pcmanfm" &
       ;;
     \"mem\")
       notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &
+      ;;
+    \"cpu\")
+      i3-msg -q "exec --no-startup-id urxvt -title htop -e sudo htop" &
       ;;
     \"bright\")
       ~/.config/i3/scripts/lightdown &
@@ -91,7 +95,7 @@ while read;do
       #fi
       #;;
     \"volume\")
-      pavucontrol &
+      i3-msg -q "exec --no-startup-id pavucontrol" &
       ;;
     #\"volume\")
       #VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`

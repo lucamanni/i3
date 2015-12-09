@@ -1,0 +1,3 @@
+#!/bin/bash
+
+i3-msg "workspace 4:; append_layout /home/luca/.config/i3/layouts/chat.json; workspace 4:"
