@@ -22,7 +22,7 @@ ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_up",    "full_te
 #{"name": "cpu",     "full_text": "  {${cpu cpu1}.${cpu cpu2}.${cpu cpu3}.${cpu cpu4}}",                       "color": "\#8BC3E7"},
 
 {"name": "cpu",      "full_text": "  ${cpu}%",                                                                 "color": "\#8BC3E7"},
-{"name": "temp",     "full_text": " ${acpitemp}",                                                              "color": "\#B987D9"},
+{"name": "temp",     "full_text": "  ${acpitemp}",                                                              "color": "\#B987D9"},
 {"name": "mem",      "full_text": "  ${mem}",                                                                  "color": "\#F3D194"},
 
 {"name": "fsicon",   "full_text": " ",                                                                         "color": "\#FF9D17", "separator_block_width": 2},
