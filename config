@@ -68,9 +68,10 @@ exec $nsi dunst &
 exec $nsi udiskie -aNqs -f pcmanfm &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
+exec $nsi xfce4-power-manager &
 exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
-exec $nsi sleep 4 && $scripts/screensaver &
+#exec $nsi sleep 4 && $scripts/screensaver &
 # }}}
 # {{{ Navigation
 bindsym $mod+Shift+y move absolute position center
@@ -166,7 +167,7 @@ assign [instance="crx_blpcfgokakmgnkcojhhkbfbldkacnbeo"]    $WS6
 assign [title="vGet Cast"]                                  $WS6
 assign [class="mplayer2"]                                   $WS6
 assign [class="Vlc"]                                        $WS6
-assign [title="TorrentStream"]                              $WS6
+assign [instance="crx_icocmgpofpimcojhefbcfbdldkmndpgj"]    $WS6
 assign [class="Gtk-recordMyDesktop"]                        $WS6
 assign [class="bomi"]                                       $WS6
 assign [class="mpv"]                                        $WS6
@@ -199,10 +200,12 @@ assign [class="Ssvnc.tcl"]                                  $WS8
 assign [class="Ssvnc"]                                      $WS8
 assign [class="qt5ct"]                                      $WS9
 assign [title="2048"]                                       $WS9
+#assign [class="Xfce4-panel"]                                $WS9
 assign [instance="crx_ccbhekjfmokgloklnjnidfhlaofegeno"]    $WS9
 assign [instance="crx_lneaknkopdijkpnocmklfnjbeapigfbh"]    $WS9
 assign [instance="crx_dokhhdohljjhoojogddojcpblnplacca"]    $WS9
 assign [instance="crx_hhjdhphdahdiegkachmnakmdbikakplo"]    $WS9
+assign [instance="crx_hkgndiocipalkpejnpafdbdlfdjihomd"]    $WS9
 assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
@@ -241,6 +244,7 @@ for_window [instance="crx_jhgkinonbcanhcglhghmagakkaomeiaj"] focus
 for_window [instance="crx_hhjdhphdahdiegkachmnakmdbikakplo"] focus
 for_window [instance="crx_iegjdjcmfimekjidjffaddhgolgclmcf"] focus
 for_window [instance="crx_ebkimgohghnhicaeajobmnbmgelgfcbc"] focus
+for_window [instance="crx_hkgndiocipalkpejnpafdbdlfdjihomd"] focus
 for_window [instance="crx_ccbhekjfmokgloklnjnidfhlaofegeno"] floating enable, border normal, focus, move absolute center
 for_window [window_role="pop-up"]                           floating enable
 for_window [instance="spotify"]                             focus, border normal
@@ -254,10 +258,11 @@ for_window [class="Guvcview"]                               floating enable, bor
 for_window [class="Gtk-recordMyDesktop"]                    floating enable, border normal, focus, move absolute center
 for_window [instance="Abp"]                                 floating enable, border normal, focus, move absolute center
 for_window [title="2048"]                                   floating enable, border normal, focus, move absolute center
-for_window [title="TorrentStream"]                          floating enable, border normal, focus, move absolute center
+for_window [instance="crx_icocmgpofpimcojhefbcfbdldkmndpgj"] floating enable, border normal, focus, move absolute center
 for_window [instance="Toplevel"]                            floating enable, border normal, focus, move absolute center
 for_window [instance="Places"]                              floating enable, border normal, focus, move absolute center
 for_window [instance="Zoompage-options"]                    floating enable, border normal, focus, move absolute center
+for_window [class="Xfce4-panel"]                            floating enable, border 1px, focus, sticky, ontop, move absolute center
 for_window [class="Pamac-updater"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Pamac-manager"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Unetbootin.elf"]                         floating enable, border normal, focus, move absolute center

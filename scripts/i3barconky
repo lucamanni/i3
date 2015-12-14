@@ -47,6 +47,15 @@ while read;do
     \"time\")
       i3-msg -q "exec --no-startup-id keepassx" &
       ;;
+    \"kill\")
+      i3-msg -q "kill" &
+      ;;
+    \"maxi\")
+      i3-msg -q "floating toggle" &
+      ;;
+    \"mini\")
+      i3-msg -q "border toggle" &
+      ;;
     \"temp\")
       notify-send -a "Temperatures" -u normal "$(temp_nc)" &
       ;;

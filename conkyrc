@@ -55,5 +55,9 @@ ${if_mpd_playing}    {"name": "mpd_-", "full_text": "-",                        
 ${if_mpd_playing}    {"name": "mpd_a", "full_text": "$mpd_artist",                                              "color": "\#ecedee", "separator_block_width": 5},  ${endif}
 {"name": "mpd_<",    "full_text": "<",                                                                          "color": "\#565656", "separator_block_width": 7},
 
+{"name": "mini",     "full_text": "",                                                                          "color": "\#F3D194", "separator_block_width": 9},
+{"name": "maxi",     "full_text": "",                                                                          "color": "\#F3D194", "separator_block_width": 9},
+{"name": "kill",     "full_text": "",                                                                          "color": "\#F3D194", "separator_block_width": 7},
+{"name": "sep2",     "full_text": ">",                                                                          "color": "\#565656", "separator_block_width": 7},
 {"name": "updates",  "full_text": "${execi 1800 /home/luca/.config/i3/scripts/update_count.sh}"                 }
 ]
