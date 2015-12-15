@@ -211,7 +211,7 @@ assign [instance="crx_edebbhkhcaafmolanelponjjanocpacd"]    $WS9
 assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
-for_window [class="Termite"]                                focus
+for_window [class="Termite"]                                focus, floating enable, move absolute center
 for_window [class="chromium"]                               focus
 for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
@@ -322,6 +322,8 @@ bindsym    $alt+Down              exec $nsi mpc stop
 bindsym    $alt+Left              exec $nsi mpc prev
 bindsym    $alt+Right             exec $nsi mpc next
 bindsym    $mod+$alt+Down         exec $nsi mpc random
+
+bindsym $r F12                    exec $nsi tdrop termite
 
 bindsym $r Control+$alt+w         exec $nsi /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
 
