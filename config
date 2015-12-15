@@ -206,6 +206,8 @@ assign [instance="crx_lneaknkopdijkpnocmklfnjbeapigfbh"]    $WS9
 assign [instance="crx_dokhhdohljjhoojogddojcpblnplacca"]    $WS9
 assign [instance="crx_hhjdhphdahdiegkachmnakmdbikakplo"]    $WS9
 assign [instance="crx_hkgndiocipalkpejnpafdbdlfdjihomd"]    $WS9
+assign [instance="crx_aiahmijlpehemcpleichkcokhegllfjl"]    $WS9
+assign [instance="crx_edebbhkhcaafmolanelponjjanocpacd"]    $WS9
 assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
@@ -245,6 +247,8 @@ for_window [instance="crx_hhjdhphdahdiegkachmnakmdbikakplo"] focus
 for_window [instance="crx_iegjdjcmfimekjidjffaddhgolgclmcf"] focus
 for_window [instance="crx_ebkimgohghnhicaeajobmnbmgelgfcbc"] focus
 for_window [instance="crx_hkgndiocipalkpejnpafdbdlfdjihomd"] focus
+for_window [instance="crx_aiahmijlpehemcpleichkcokhegllfjl"] focus
+for_window [instance="crx_edebbhkhcaafmolanelponjjanocpacd"] focus
 for_window [instance="crx_ccbhekjfmokgloklnjnidfhlaofegeno"] floating enable, border normal, focus, move absolute center
 for_window [window_role="pop-up"]                           floating enable
 for_window [instance="spotify"]                             focus, border normal
