@@ -69,10 +69,10 @@ while read;do
       notify-send -a "Internal IP" -u normal "$(sh ~/.config/i3/scripts/ip-internal)" &
       ;;
     \"net_up_i\")
-      i3-msg -q "exec --no-startup-id opera; workspace 2:" &
+      i3-msg -q "exec --no-startup-id firefox" &
       ;;
      \"net_down_i\")
-      i3-msg -q "exec --no-startup-id chromium; workspace 2:" &
+      i3-msg -q "exec --no-startup-id chromium" &
       ;;
     \"kernel\")
       #notify-send -a "Memo" -u normal "$(cat ~/.reminders)" &
@@ -82,7 +82,7 @@ while read;do
       notify-send -a "Disks mounted" -u normal "$(dfc -d | grep /dev/sda && dfc -d | grep /dev/sdb)" &
       ;;
     \"fsicon\")
-      i3-msg -q "exec --no-startup-id pcmanfm" &
+      i3-msg -q "exec --no-startup-id thunar" &
       ;;
     \"mem\")
       notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &

@@ -65,7 +65,8 @@ exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec $nsi dunst &
-exec $nsi udiskie -aNqs -f pcmanfm &
+exec $nsi thunar --daemon &
+exec $nsi udiskie -aNqs -f thunar &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
 exec $nsi xfce4-power-manager &
@@ -146,8 +147,9 @@ bindsym $mod+Shift+9 move container to workspace $WS9
 # {{{ Rules
 assign [class="URxvt"]                                      $WS1
 assign [class="Termite"]                                    $WS1
-assign [class="Opera"]                                      $WS2
-assign [class="Pcmanfm"]                                    $WS3
+assign [class="Firefox"]                                    $WS2
+#assign [class="chromium"]                                   $WS2
+assign [class="Thunar"]                                     $WS3
 assign [title="ranger"]                                     $WS3
 assign [instance="crx_ioekoebejdcmnlefjiknokhhafglcjdl"]    $WS3
 assign [instance="crx_apdfllckaahabafndbhieahigkjlhalf"]    $WS3
@@ -215,7 +217,7 @@ for_window [class="Termite"]                                focus, floating enab
 for_window [class="chromium"]                               focus
 for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
-for_window [class="Pcmanfm"]                                focus
+for_window [class="Thunar"]                                 focus
 for_window [class="Gpicview"]                               focus
 for_window [class="Shotwell"]                               focus
 for_window [class="Gimp"]                                   focus
@@ -281,6 +283,7 @@ for_window [class="qt5ct"]                                  floating enable, bor
 for_window [class="guvcview"]                               floating enable, border normal, focus, move absolute center
 for_window [class="Telegram"]                               floating enable, border normal, focus, move absolute center
 for_window [class="Xarchiver"]                              floating enable, border normal, focus, move absolute center
+for_window [class="Plank"]                                  floating enable, border 1px, focus, move absolute center
 for_window [window_role="Msgcompose"]                       floating enable, border normal, focus, move absolute center
 for_window [class="Xmessage"]                               floating enable, focus, move absolute center
 for_window [class="XFontSel"]                               floating enable, focus, move absolute center
@@ -300,11 +303,11 @@ bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ra
 bindsym    $mod+Control+u         exec $nsi urxvt -title updating -e yaourt -Syyua --noconfirm
 bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
-bindsym $r $mod+w                 exec $nsi firefox, workspace 2:
-bindsym $r $mod+$alt+w            exec $nsi chromium, workspace 2:
+bindsym $r $mod+w                 exec $nsi firefox
+bindsym $r $mod+$alt+w            exec $nsi chromium
 bindsym $r $mod+$alt+t            exec $nsi thunderbird
-bindsym    $mod+p                 exec $nsi pcmanfm
-bindsym    $mod+$alt+p            exec $nsi sudo pcmanfm
+bindsym    $mod+p                 exec $nsi thunar
+bindsym    $mod+$alt+p            exec $nsi sudo thunar
 bindsym $r $mod+s                 exec $nsi spotify, workspace 7:
 bindsym $r $mod+m                 exec $nsi pragha
 bindsym    $mod+k                 exec $nsi kodi
