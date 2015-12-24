@@ -35,16 +35,15 @@ while read;do
      \"mpd_b\")
       i3-msg -q "exec --no-startup-id urxvt -title music -e ncmpcpp" &
       ;;
-    \"date\")
+    \"time\")
       notify-send -a "Calendar" -u normal "$(cal)" &
       ;;
      \"date_i\")
      i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
-      #i3-msg -q "exec --no-startup-id yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar" &
-      #sleep 10 && killall yad &
       ;;
-    \"time\")
-      i3-msg -q "exec --no-startup-id keepassx" &
+    \"date\")
+      i3-msg -q "exec --no-startup-id yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar" &
+      sleep 10 && killall yad &
       ;;
     \"kill\")
       i3-msg -q "kill" &
