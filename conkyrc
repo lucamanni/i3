@@ -12,6 +12,19 @@ TEXT
 
 {"name": "spotify",  "full_text": "${exec .config/i3/scripts/spotify-nowplaying.sh}",                           "color": "\#96CA62", "separator_block_width": 12},
 
+{"name": "mpd_>",    "full_text": "<",                                                                          "color": "\#565656", "separator_block_width": 7},
+${if_mpd_playing}    {"name": "mpd_r", "full_text": "$mpd_random",                                              "color": "\#ecedee", "separator_block_width": 7},  ${endif}
+${if_match "${mpd_status}" == "Paused" } 
+                     {"name": "mpd_i", "full_text": " ",                                                       "color": "\#33B6BA", "separator_block_width": 3},  ${else} 
+                     {"name": "mpd_i", "full_text": " ",                                                       "color": "\#33B6BA", "separator_block_width": 3},  ${endif}
+${if_mpd_playing}    {"name": "mpd_b", "full_text": "${mpd_bar 16,6}",                                          "color": "\#33B6BA", "separator_block_width": 10}, ${endif}
+${if_mpd_playing}    {"name": "mpd_t", "full_text": "$mpd_title",                                               "color": "\#33B6BA", "separator_block_width": 5},  ${endif}
+${if_mpd_playing}    {"name": "mpd_-", "full_text": "-",                                                        "color": "\#565656", "separator_block_width": 5},  ${endif}
+${if_mpd_playing}    {"name": "mpd_a", "full_text": "$mpd_artist",                                              "color": "\#ecedee", "separator_block_width": 5},  ${endif}
+{"name": "mpd_<",    "full_text": ">",                                                                          "color": "\#565656", "separator_block_width": 7},
+
+
+
 {"name": "volume",   "full_text": "${exec /home/luca/.config/i3/scripts/pacvol.sh display}",                    "color": "\#8BADF9"},
 
 ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_down_i","full_text": " ",                      "color": "\#A4DC6A", "separator_block_width": 1},  ${endif}
@@ -45,16 +58,7 @@ ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_up",    "full_te
 {"name": "sep",      "full_text": ">",                                                                          "color": "\#565656", "separator_block_width": 5},
 {"name": "time",     "full_text": "${time %H:%M}",                                                              "color": "\#8BADF9", "separator_block_width": 5},
 
-{"name": "sep2",     "full_text": ">",                                                                          "color": "\#565656", "separator_block_width": 7},
-${if_mpd_playing}    {"name": "mpd_r", "full_text": "$mpd_random",                                              "color": "\#ecedee", "separator_block_width": 7},  ${endif}
-${if_match "${mpd_status}" == "Paused" } 
-                     {"name": "mpd_i", "full_text": " ",                                                       "color": "\#33B6BA", "separator_block_width": 3},  ${else} 
-                     {"name": "mpd_i", "full_text": " ",                                                       "color": "\#33B6BA", "separator_block_width": 3},  ${endif}
-${if_mpd_playing}    {"name": "mpd_b", "full_text": "${mpd_bar 16,6}",                                          "color": "\#33B6BA", "separator_block_width": 10}, ${endif}
-${if_mpd_playing}    {"name": "mpd_t", "full_text": "$mpd_title",                                               "color": "\#33B6BA", "separator_block_width": 5},  ${endif}
-${if_mpd_playing}    {"name": "mpd_-", "full_text": "-",                                                        "color": "\#565656", "separator_block_width": 5},  ${endif}
-${if_mpd_playing}    {"name": "mpd_a", "full_text": "$mpd_artist",                                              "color": "\#ecedee", "separator_block_width": 5},  ${endif}
-{"name": "mpd_<",    "full_text": "<",                                                                          "color": "\#565656", "separator_block_width": 7},
+{"name": "sep2",     "full_text": "<",                                                                          "color": "\#565656", "separator_block_width": 7},
 
 {"name": "mini",     "full_text": "",                                                                          "color": "\#F3D194", "separator_block_width": 9},
 {"name": "maxi",     "full_text": "",                                                                          "color": "\#F3D194", "separator_block_width": 9},

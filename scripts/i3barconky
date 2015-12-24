@@ -13,9 +13,8 @@ while read;do
   X=$(($X-50))
   case "${NAME}" in
     \"updates\")
-      #if [[ $? -eq=0 ]];then
-        i3-msg -q "exec --no-startup-id urxvt -title updating -e yaourt -Syyua --noconfirm" &
-      #fi
+      notify-send -a "Available updates" -u normal "$(yaourt -Qu)" &
+      #i3-msg -q "exec --no-startup-id urxvt -title updating -e yaourt -Syyua --noconfirm" &
       ;;
     \"mpd_i\")
       mpc --quiet toggle &

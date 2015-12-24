@@ -1,18 +1,22 @@
-Chromium :chromium  
-  Firefox   :firefox   
- Facebook  :firefox https://www.facebook.com/
- KeePass  :keepassx
- Gimp  :gimp
- Github  :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
- Terminal  :tdrop termite
-   Change Wallpaper  :nitrogen  
- Edit i3  :urxvt -e vim .config/i3/config  
-  Edit Bar  :urxvt -e vim .config/i3/scripts/i3barconky  
-  Edit Conky  :urxvt -e vim .config/i3/conkyrc  
-  Edit Menu  :urxvt -e vim .config/i3/menurc  
+ ============= 
+ Facebook :firefox https://www.facebook.com/
+ KeePass :keepassx
+ Gimp :gimp
+ Photos :shotwell
+ Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
+ Dropbox :dropbox
+ Dieta :localc /media/Dati/Dropbox/DIETA\ LUCA.xlsx
+ ============= 
+ Wall :nitrogen  
+i3 :urxvt -e vim .config/i3/config  
+ Bar :urxvt -e vim .config/i3/scripts/i3barconky  
+ Conky :urxvt -e vim .config/i3/conkyrc  
+ Menu :urxvt -e vim .config/i3/menurc  
+ ============= 
+ Upgrade :urxvt -e yaourt -Syyua --noconfirm
  Lock :i3lock -d -p default -i /media/Dati/Dropbox/Wallpapers/suburb.png
  Logout :i3-msg exit 
  Restart :i3-msg restart 
  Reboot :sudo systemctl reboot 
  Shutdown :sudo systemctl poweroff 
- Close Menu :exit
+ ============= 
