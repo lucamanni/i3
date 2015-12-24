@@ -13,10 +13,8 @@ while read;do
   X=$(($X-50))
   case "${NAME}" in
     \"updates\")
-      notify-send -a "Available updates" -u normal "$(yaourt -Qu)" &
-      #yad --button gtk-apply:0 --text-info --geometry=200x200+$X+20 --class "YADWIN" --margins=10 --filename=<(pacman -Sup --print-format="%n %v" | grep -v "^::")
-      #if [[ $? -eq 0 ]];then
-        #urxvt -H --command "/home/luca/.config/i3/scripts/conkexec.sh sudo pacmatic -Syu" -T "Menu Update"
+      #if [[ $? -eq=0 ]];then
+        i3-msg -q "exec --no-startup-id urxvt -title updating -e yaourt -Syyua --noconfirm" &
       #fi
       ;;
     \"mpd_i\")
@@ -41,8 +39,9 @@ while read;do
       notify-send -a "Calendar" -u normal "$(cal)" &
       ;;
      \"date_i\")
-      i3-msg -q "exec --no-startup-id yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar" &
-      sleep 10 && killall yad &
+     i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
+      #i3-msg -q "exec --no-startup-id yad --no-buttons --geometry=+1054+24 --class "YADWIN" --calendar" &
+      #sleep 10 && killall yad &
       ;;
     \"time\")
       i3-msg -q "exec --no-startup-id keepassx" &

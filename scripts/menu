@@ -1,0 +1,3 @@
+#!/bin/bash
+
+9menu -popup -font '-*-tamsyn-medium-r-normal-*-14-*-*-*-*-*-*-*' -bg '#242c33' -fg '#cacaca' -file ".config/i3/menurc"

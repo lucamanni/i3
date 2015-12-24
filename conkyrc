@@ -28,9 +28,10 @@ ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_up",    "full_te
 {"name": "fsicon",   "full_text": " ",                                                                         "color": "\#FF9D17", "separator_block_width": 2},
 {"name": "home",     "full_text": "${fs_free /}",                                                               "color": "\#FF9D17"},
 
-${if_match "${battery_short}" == "F" } 
-{"name": "bat",      "full_text": "",                                                                           "color": "\#94F397"}, ${else} 
-{"name": "bat",      "full_text": "${exec .config/i3/scripts/bat_icon.sh}",                                     "color": "\#94F397"}, ${endif}
+#${if_match "${battery_short}" == "F" } 
+#{"name": "bat",      "full_text": "",                                                                           "color": "\#94F397"}, ${else} 
+#{"name": "bat",      "full_text": "${exec .config/i3/scripts/bat_icon.sh}",                                     "color": "\#94F397"}, ${endif}
+{"name": "bat",      "full_text": "${exec .config/i3/scripts/bat_icon.sh}",                                     "color": "\#94F397"},
 
 {"name": "bright_i", "full_text": "",                                                                          "color": "\#F3EA0C", "separator_block_width": 5},
 {"name": "bright",   "full_text": "${exec /home/luca/.config/i3/scripts/blevel.sh}%",                           "color": "\#F3EA0C", "separator_block_width": 7},
