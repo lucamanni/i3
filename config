@@ -148,7 +148,7 @@ bindsym $mod+Shift+9 move container to workspace $WS9
 assign [class="URxvt"]                                      $WS1
 assign [class="Termite"]                                    $WS1
 assign [class="Firefox"]                                    $WS2
-assign [class="chromium"]                                   $WS2
+#assign [class="chromium"]                                   $WS2
 assign [class="Thunar"]                                     $WS3
 assign [title="ranger"]                                     $WS3
 assign [instance="crx_ioekoebejdcmnlefjiknokhhafglcjdl"]    $WS3
@@ -257,7 +257,8 @@ for_window [instance="spotify"]                             focus, border normal
 for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [title="vGet Cast"]                              floating enable, focus, border normal
 for_window [class="Kodi"]                                   fullscreen enable, focus, border none
-for_window [class="9menu"]                                  focus, border none, move absolute position 1108 px 24 px
+#for_window [class="9menu"]                                  focus, border none, move absolute position 1265 px 24 px
+for_window [class="9menu"]                                  focus, border none, move absolute position 1250 px 24 px
 for_window [class="Xfce4-appfinder"]                        floating enable, border 1px, focus, move absolute center
 for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
 for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
@@ -304,12 +305,12 @@ bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ra
 bindsym    $mod+Control+u         exec $nsi urxvt -title updating -e yaourt -Syyua --noconfirm
 bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
-bindsym $r $mod+w                 exec $nsi chromium
+bindsym $r $mod+w                 exec $nsi chromium, workspace $WS2
 bindsym $r $mod+$alt+w            exec $nsi firefox
 bindsym $r $mod+$alt+t            exec $nsi thunderbird
 bindsym    $mod+p                 exec $nsi thunar
 bindsym    $mod+$alt+p            exec $nsi sudo thunar
-bindsym $r $mod+s                 exec $nsi spotify, workspace 7:
+bindsym $r $mod+s                 exec $nsi spotify, workspace $WS7
 bindsym $r $mod+m                 exec $nsi pragha
 bindsym    $mod+k                 exec $nsi kodi
 

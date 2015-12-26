@@ -37,7 +37,8 @@ while read;do
     \"time\")
       notify-send -a "Calendar" -u normal "$(cal)" &
       ;;
-     \"date_i\")
+     \"menu\")
+     #i3-msg -q "exec --no-startup-id mygtkmenu -- .mygtkmenu.txt" &
      i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
       ;;
     \"date\")

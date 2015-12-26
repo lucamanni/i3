@@ -1,10 +1,14 @@
  ============= 
  Facebook :firefox https://www.facebook.com/
+ Messenger :messenger
+ Whatsapp :whatsapp
  KeePass :keepassx
+ Mail :thunderbird
  Gimp :gimp
  Photos :shotwell
  Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  Dropbox :dropbox
+ Kodi :kodi
  Dieta :localc /media/Dati/Dropbox/DIETA\ LUCA.xlsx
  ============= 
  Wall :nitrogen  
