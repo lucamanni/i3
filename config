@@ -312,6 +312,7 @@ bindsym    $mod+p                 exec $nsi thunar
 bindsym    $mod+$alt+p            exec $nsi sudo thunar
 bindsym $r $mod+s                 exec $nsi spotify, workspace $WS7
 bindsym $r $mod+m                 exec $nsi pragha
+bindsym $r $mod+d                 exec $nsi mygtkmenu -- .mygtkmenu.txt
 bindsym    $mod+k                 exec $nsi kodi
 
 bindsym    XF86MonBrightnessDown  exec $nsi $scripts/lightdown
