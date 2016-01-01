@@ -260,6 +260,7 @@ for_window [instance="crx_edebbhkhcaafmolanelponjjanocpacd"] focus
 for_window [instance="crx_ccbhekjfmokgloklnjnidfhlaofegeno"] floating enable, border normal, focus, move absolute center
 for_window [window_role="pop-up"]                           floating enable
 for_window [instance="spotify"]                             focus, border normal
+for_window [class="CALENDAR"]                               floating enable, border 1px, focus
 for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [title="vGet Cast"]                              floating enable, focus, border normal
 #for_window [class="Kodi"]                                   fullscreen enable, focus, border none

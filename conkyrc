@@ -21,7 +21,9 @@ ${if_mpd_playing}    {"name": "mpd_t", "full_text": "$mpd_title",               
 ${if_mpd_playing}    {"name": "mpd_-", "full_text": "-",                                                        "color": "\#565656", "separator_block_width": 5},  ${endif}
 ${if_mpd_playing}    {"name": "mpd_a", "full_text": "$mpd_artist",                                              "color": "\#ecedee", "separator_block_width": 5},  ${endif}
 {"name": "separator", "full_text": "│",                                                                          "color": "\#565656", "separator_block_width": 4},
+
 {"name": "volume",   "full_text": "${exec /home/luca/.config/i3/scripts/pacvol.sh display}",                    "color": "\#8BADF9", "separator_block_width": 4},
+
 ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "separator", "full_text": "│",                       "color": "\#565656", "separator_block_width": 4},  ${endif}
 ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_down_i","full_text": " ",                      "color": "\#A4DC6A", "separator_block_width": 1},  ${endif}
 ${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_down",  "full_text": "${downspeed wlp2s0}",     "color": "\#A4DC6A"},                              ${endif}

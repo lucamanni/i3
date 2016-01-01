@@ -9,6 +9,7 @@
  Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  Dropbox :dropbox
  Kodi :kodi
+ Volume :pavucontrol
  Dieta :localc /media/Dati/Dropbox/DIETA\ LUCA.xlsx
  ============= 
  Onboard :onboard  
