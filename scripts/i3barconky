@@ -38,7 +38,7 @@ while read;do
       notify-send -a "Calendar" -u normal "$(cal)" &
       ;;
      \"menu\")
-     #i3-msg -q "exec --no-startup-id mygtkmenu -- .mygtkmenu.txt" &
+     #i3-msg -q "exec --no-startup-id mygtkmenu ~/.config/GTKmenu/appmenu" &
      i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
       ;;
     \"date\")
@@ -86,7 +86,7 @@ while read;do
       notify-send -a "RAM" -u normal "$(free -m | grep total && free -m | grep Mem)" &
       ;;
     \"cpu\")
-      i3-msg -q "exec --no-startup-id urxvt -title htop -e sudo htop" &
+      i3-msg -q "exec --no-startup-id xfce4-taskmanager" &
       ;;
     \"bright\")
       ~/.config/i3/scripts/lightdown &

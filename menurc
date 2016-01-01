@@ -2,7 +2,7 @@
  Facebook :firefox https://www.facebook.com/
  Messenger :messenger
  Whatsapp :whatsapp
- KeePass :keepassx
+ KeePass :keepassx --keyfile /media/Dati/Dropbox/Computer/KeePass/luca /media/Dati/Dropbox/Computer/KeePass/Luca.kdbx
  Mail :thunderbird
  Gimp :gimp
  Photos :shotwell
@@ -11,13 +11,14 @@
  Kodi :kodi
  Dieta :localc /media/Dati/Dropbox/DIETA\ LUCA.xlsx
  ============= 
+ Onboard :onboard  
  Wall :nitrogen  
 i3 :urxvt -e vim .config/i3/config  
  Bar :urxvt -e vim .config/i3/scripts/i3barconky  
- Conky :urxvt -e vim .config/i3/conkyrc  
+ Conky :urxvt -e vim .config/i3/conkyrc
  Menu :urxvt -e vim .config/i3/menurc  
  ============= 
- Upgrade :urxvt -e yaourt -Syyua --noconfirm
+ Upgrade :urxvt -e yaourt -Syyua --noconfirm && i3-msg restart
  Lock :i3lock -d -p default -i /media/Dati/Dropbox/Wallpapers/suburb.png
  Logout :i3-msg exit 
  Restart :i3-msg restart 

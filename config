@@ -72,6 +72,7 @@ exec $nsi rofi -d &
 exec $nsi xfce4-power-manager &
 exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
+#exec $nsi onboard &
 #exec $nsi sleep 4 && $scripts/screensaver &
 # }}}
 # {{{ Navigation
@@ -174,6 +175,7 @@ assign [class="Gtk-recordMyDesktop"]                        $WS6
 assign [class="bomi"]                                       $WS6
 assign [class="mpv"]                                        $WS6
 assign [class="guvcview"]                                   $WS6
+assign [class="Pulseaudio-equalizer.py"]                    $WS7
 assign [title="Deezer Shortcut"]                            $WS7
 assign [instance="crx_icppfcnhkcmnfdhfhphakoifcfokfdhg"]    $WS7
 assign [instance="crx_cbiapabbjlfcbfoedilflhnifandagoh"]    $WS7
@@ -201,6 +203,8 @@ assign [class="Nitrogen"]                                   $WS8
 assign [class="Ssvnc.tcl"]                                  $WS8
 assign [class="Ssvnc"]                                      $WS8
 assign [class="qt5ct"]                                      $WS9
+assign [class="Xfce4-taskmanager"]                          $WS9
+assign [class="Onboard-settings"]                           $WS9
 assign [title="2048"]                                       $WS9
 #assign [class="Xfce4-panel"]                                $WS9
 assign [instance="crx_ccbhekjfmokgloklnjnidfhlaofegeno"]    $WS9
@@ -215,7 +219,7 @@ assign [class="Kodi"]                                       $WS10
 for_window [class="URxvt"]                                  focus
 for_window [class="Termite"]                                focus, floating enable, move absolute center
 for_window [class="chromium"]                               focus
-for_window [class="Keepassx"]                               focus
+#for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
 for_window [class="Thunar"]                                 focus
 for_window [class="Gpicview"]                               focus
@@ -229,6 +233,8 @@ for_window [class="bomi"]                                   focus
 for_window [class="mpv"]                                    focus
 for_window [class="Opera"]                                  focus
 for_window [class="Pragha"]                                 focus
+for_window [instance="libreoffice"]                         focus
+for_window [class="Xfce4-taskmanager"]                      focus
 for_window [class="nuvolaplayer3"]                          focus
 for_window [title="Deezer Shortcut"]                        focus
 for_window [class="nuvolaplayer3-deezer"]                   focus
@@ -256,14 +262,17 @@ for_window [window_role="pop-up"]                           floating enable
 for_window [instance="spotify"]                             focus, border normal
 for_window [class="YADWIN"]                                 floating enable, border 1px, focus
 for_window [title="vGet Cast"]                              floating enable, focus, border normal
-for_window [class="Kodi"]                                   fullscreen enable, focus, border none
+#for_window [class="Kodi"]                                   fullscreen enable, focus, border none
+for_window [class="Kodi"]                                   focus, border none
 #for_window [class="9menu"]                                  focus, border none, move absolute position 1265 px 24 px
 for_window [class="9menu"]                                  focus, border none, move absolute position 1250 px 24 px
 for_window [class="Xfce4-appfinder"]                        floating enable, border 1px, focus, move absolute center
+for_window [class="Xfrun4"]                                 floating enable, border 1px, focus, move absolute center
 for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
 for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
 for_window [class="Guvcview"]                               floating enable, border normal, move absolute center
 for_window [class="Gtk-recordMyDesktop"]                    floating enable, border normal, focus, move absolute center
+for_window [class="Pulseaudio-equalizer.py"]                floating enable, border normal, focus, move absolute center
 for_window [instance="Abp"]                                 floating enable, border normal, focus, move absolute center
 for_window [title="2048"]                                   floating enable, border normal, focus, move absolute center
 for_window [instance="crx_icocmgpofpimcojhefbcfbdldkmndpgj"] floating enable, border normal, focus, move absolute center
@@ -273,6 +282,8 @@ for_window [instance="Zoompage-options"]                    floating enable, bor
 for_window [class="Xfce4-panel"]                            floating enable, border 1px, focus, sticky, ontop, move absolute center
 for_window [class="Pamac-updater"]                          floating enable, border normal, focus, move absolute center
 for_window [class="Pamac-manager"]                          floating enable, border normal, focus, move absolute center
+for_window [class="Onboard"]                                floating enable, border none
+for_window [class="Onboard-settings"]                       floating enable, border normal, focus, move absolute center
 for_window [class="Unetbootin.elf"]                         floating enable, border normal, focus, move absolute center
 for_window [class="Nitrogen"]                               floating enable, border normal, focus, move absolute center
 for_window [class="Polkit-gnome-authentication-agent-1"]    floating enable, border normal, focus, move absolute center
@@ -302,7 +313,7 @@ bindsym    $mod+Return            exec $nsi urxvt
 bindsym    $mod+Shift+Return      exec $nsi urxvt -e tmux 
 bindsym    $mod+f                 exec $nsi urxvt -title ranger -e ranger
 bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ranger
-bindsym    $mod+Control+u         exec $nsi urxvt -title updating -e yaourt -Syyua --noconfirm
+bindsym    $mod+Control+u         exec $nsi "urxvt -title updating -e yaourt -Syyua --noconfirm && i3-msg restart"
 bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
 bindsym $r $mod+w                 exec $nsi chromium, workspace $WS2
@@ -312,7 +323,8 @@ bindsym    $mod+p                 exec $nsi thunar
 bindsym    $mod+$alt+p            exec $nsi sudo thunar
 bindsym $r $mod+s                 exec $nsi spotify, workspace $WS7
 bindsym $r $mod+m                 exec $nsi pragha
-bindsym $r $mod+d                 exec $nsi mygtkmenu -- .mygtkmenu.txt
+#bindsym $r $mod+d                 exec $nsi mygtkmenu -- .mygtkmenu.txt
+bindsym $r $mod+d                 exec $nsi mygtkmenu ~/.config/GTKmenu/appmenu
 bindsym    $mod+k                 exec $nsi kodi
 
 bindsym    XF86MonBrightnessDown  exec $nsi $scripts/lightdown
