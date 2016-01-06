@@ -60,7 +60,7 @@ new_float normal
 bindsym $mod+y exec $nsi i3-msg border toggle
 # }}}
 # {{{ Autostart
-exec $nsi $scripts/light &
+#exec $nsi $scripts/light &
 exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

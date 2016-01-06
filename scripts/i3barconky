@@ -88,30 +88,30 @@ while read;do
     \"cpu\")
       i3-msg -q "exec --no-startup-id xfce4-taskmanager" &
       ;;
-    #\"bright\")
-      #~/.config/i3/scripts/lightdown &
-      #;;
-     #\"bright_i\")
-      #~/.config/i3/scripts/lightup &
-      #;;
     \"bright\")
-      LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
-      OUT=`yad --scale --value $LEVEL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
-      if [[ $? -eq 0 ]];then
-        Q=`/home/luca/.config/i3/scripts/conkexec.sh sudo light -S $OUT`
-      fi
+      ~/.config/i3/scripts/lightdown &
       ;;
-    #\"volume\")
-      #i3-msg -q "exec --no-startup-id pavucontrol" &
+     \"bright_i\")
+      ~/.config/i3/scripts/lightup &
+      ;;
+    #\"bright\")
+      #LEVEL=`/home/luca/.config/i3/scripts/blevel.sh`
+      #OUT=`yad --scale --value $LEVEL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #Q=`/home/luca/.config/i3/scripts/conkexec.sh sudo light -S $OUT`
+      #fi
       #;;
     \"volume\")
-      VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
-      OUT=`yad --scale --value $VOL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
-      if [[ $? -eq 0 ]];then
-        TARGET="$((655*$OUT))"
-        /home/luca/.config/i3/scripts/conkexec.sh pacmd set-sink-volume 0 $TARGET
-      fi
+      i3-msg -q "exec --no-startup-id pavucontrol" &
       ;;
+    #\"volume\")
+      #VOL=`/home/luca/.config/i3/scripts/pacvol.sh display | sed "s/[^1-9]//" | sed "s/%//"`
+      #OUT=`yad --scale --value $VOL --button gtk-ok:0 --sticky --geometry=+$X+24 --class "YADWIN" --text-align center`
+      #if [[ $? -eq 0 ]];then
+        #TARGET="$((655*$OUT))"
+        #/home/luca/.config/i3/scripts/conkexec.sh pacmd set-sink-volume 0 $TARGET
+      #fi
+      #;;
     *)
       ;;
   esac
