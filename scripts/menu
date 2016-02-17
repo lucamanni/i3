@@ -1,4 +1,4 @@
 #!/bin/bash
 
-9menu -popup -font '-*-tamsyn-medium-r-normal-*-14-*-*-*-*-*-*-*' -bg '#242c33' -fg '#cacaca' -file ".config/i3/menurc"
+9menu -popup -font '-*-tamsyn-medium-r-normal-*-20-*-*-*-*-*-*-*' -bg '#242c33' -fg '#cacaca' -file ".config/i3/menurc"
 #9menu -popup -font '-lucy-tewi-medium-r-normal-*-11-90-75-75-m-60-iso10646-1' -bg '#242c33' -fg '#cacaca' -file ".config/i3/menurc"

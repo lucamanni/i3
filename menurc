@@ -8,8 +8,9 @@
  Photos :shotwell
  Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  Dropbox :dropbox
- Kodi :kodi
+ Kodi :kodi-standalone
  Dieta :localc /media/Dati/Dropbox/DIETA\ LUCA.xlsx
+ Serie TV:urxvt -e vim .kodi/userdata/addon_data/plugin.video.streamondemand/series.xml
  ============= 
  Onboard :onboard  
  Wall :nitrogen  

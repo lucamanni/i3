@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #echo "{\"version\":1}"
-echo "{ \"version\": 1, \"stop_signal\": 10, \"cont_signal\": 12, \"click_events\": true }"
+#echo "{ \"version\": 1, \"stop_signal\": 10, \"cont_signal\": 12, \"click_events\": true }"
+echo "{ \"version\": 1, \"click_events\": true }"
 echo "[[]"
 conky -d -c /home/luca/.config/i3/conkyrc
 
@@ -42,7 +43,8 @@ while read;do
      i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
       ;;
     \"date\")
-      i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1056+24 --class "CALENDAR" --calendar" &
+      i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+886+24 --class "CALENDAR" --calendar" &
+      #i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1056+24 --class "CALENDAR" --calendar" &
       sleep 10 && killall yad &
       ;;
     \"kill\")

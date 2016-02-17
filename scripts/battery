@@ -2,7 +2,7 @@
 
 ADAPTER=`acpi -a | cut -c 12-60`
 BATTERY=`acpi | cut -c 12-60`
-UPTIME=`uptime | cut -c 15-18`
+UPTIME=`uptime | cut -c 14-19`
 
 echo -e "Adapter: "" $ADAPTER ";
 echo -e "Battery: "" $BATTERY ";

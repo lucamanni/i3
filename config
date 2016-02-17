@@ -35,7 +35,7 @@ bar {
         #status_command i3status
         
         i3bar_command /usr/bin/i3bar
-        status_command sleep 1.5 && $scripts/i3barconky
+        status_command exec $scripts/i3barconky
         
         font pango: tewi, Icon 9
         position top
@@ -60,7 +60,7 @@ new_float normal
 bindsym $mod+y exec $nsi i3-msg border toggle
 # }}}
 # {{{ Autostart
-#exec $nsi $scripts/light &
+exec $nsi $scripts/light &
 exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -72,8 +72,8 @@ exec $nsi rofi -d &
 exec $nsi xfce4-power-manager &
 exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
-#exec $nsi onboard &
 #exec $nsi sleep 4 && $scripts/screensaver &
+#exec $nsi onboard &
 # }}}
 # {{{ Navigation
 bindsym $mod+Shift+y move absolute position center
@@ -266,8 +266,9 @@ for_window [title="vGet Cast"]                              floating enable, foc
 #for_window [class="Kodi"]                                   fullscreen enable, focus, border none
 for_window [class="Kodi"]                                   focus, border none
 #for_window [class="9menu"]                                  focus, border none, move absolute position 1265 px 24 px
-for_window [class="9menu"]                                  focus, border none, move absolute position 1250 px 24 px
-for_window [class="Xfce4-appfinder"]                        floating enable, border 1px, focus, move absolute center
+for_window [class="9menu"]                                  focus, border none, move absolute position 1200 px 24 px
+#for_window [class="9menu"]                                  focus, border none, move absolute position 1250 px 24 px
+for_window [class="Xfce4-appfinder"]                        border 1px, focus, move absolute center
 for_window [class="Xfrun4"]                                 floating enable, border 1px, focus, move absolute center
 for_window [class="Catfish"]                                floating enable, border 1px, focus, move absolute center
 for_window [class="Anoise.py"]                              floating enable, border normal, move absolute position 1241 px 569 px
@@ -326,7 +327,9 @@ bindsym $r $mod+s                 exec $nsi spotify, workspace $WS7
 bindsym $r $mod+m                 exec $nsi pragha
 #bindsym $r $mod+d                 exec $nsi mygtkmenu -- .mygtkmenu.txt
 bindsym $r $mod+d                 exec $nsi mygtkmenu ~/.config/GTKmenu/appmenu
-bindsym    $mod+k                 exec $nsi kodi
+bindsym    $mod+k                 exec $nsi keepassx --keyfile /media/Dati/Dropbox/Computer/KeePass/luca /media/Dati/Dropbox/Computer/KeePass/Luca.kdbx
+bindsym    $mod+$alt+k            exec $nsi killall keepassx
+bindsym    Control+k              exec $nsi kodi
 
 bindsym    XF86MonBrightnessDown  exec $nsi $scripts/lightdown
 bindsym    XF86MonBrightnessUp    exec $nsi $scripts/lightup
