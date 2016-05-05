@@ -22,13 +22,13 @@ display(){
   #if [ "$MUTED" = yes ]; then
     #echo "🔇  muted"
   if [ "$VOLPERC" -lt 1 ]; then
-    echo "🔇  muted"
+    echo "muted"
   elif [ "$VOLPERC" -lt 33 ]; then
-    echo "  ${VOLPERC}%"
+    echo "${VOLPERC}%"
   elif [ "$VOLPERC" -lt 66 ]; then
-    echo "  ${VOLPERC}%"
+    echo "${VOLPERC}%"
   else
-    echo "  ${VOLPERC}%"
+    echo "${VOLPERC}%"
   fi
 }
 

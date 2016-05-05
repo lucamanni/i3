@@ -43,9 +43,9 @@ while read;do
      i3-msg -q "exec --no-startup-id sh ~/.config/i3/scripts/menu" &
       ;;
     \"date\")
-      i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+886+24 --class "CALENDAR" --calendar" &
+      i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1002+40 --class "CALENDAR" --calendar" &
       #i3-msg -q "exec --no-startup-id yad --no-buttons --sticky --geometry=+1056+24 --class "CALENDAR" --calendar" &
-      sleep 10 && killall yad &
+      #sleep 10 && killall yad &
       ;;
     \"kill\")
       i3-msg -q "kill" &
