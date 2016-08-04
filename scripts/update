@@ -1,0 +1,6 @@
+#!/bin/sh
+
+notify-send -a "Available Updates" -u normal "$(yaourt -Qu)"
+sleep 1 && yaourt -Qu > Documenti/updates
+sleep 2 && termite -e "yaourt -Syyua --noconfirm" && i3-msg restart
+notify-send -a "Done!" -u normal "Your system is updated"

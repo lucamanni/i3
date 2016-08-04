@@ -12,7 +12,8 @@ then
 		echo "\",\"color\": \"#FFF50D" &
         notify-send -a "Available Updates" -u normal "$(yaourt -Qu)"
         sleep 1 && yaourt -Qu > Documenti/updates
-        sleep 2 && termite -e "yaourt -Syyua --noconfirm" && i3-msg restart
+        sleep 2 && termite -e "yaourt -Syyua --noconfirm" && i3-msg restart && 
+        notify-send -a "Done!" -u normal "Your system is updated"
 else
 		echo "\",\"color\": \"#909090" &
 fi
