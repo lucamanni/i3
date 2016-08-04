@@ -217,7 +217,7 @@ assign [instance="crx_edebbhkhcaafmolanelponjjanocpacd"]    $WS9
 assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
-for_window [class="Termite"]                                focus, floating enable, move absolute center
+for_window [class="Termite"]                                floating enable, move absolute center
 for_window [class="chromium"]                               focus
 #for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
