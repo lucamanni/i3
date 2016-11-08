@@ -9,7 +9,6 @@
  Gparted :sudo gparted
  Bleachbit #:sudo bleachbit
  Bleachbit:bleachbit
- Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  Dropbox :dropbox
  Kodi :kodi
  Libreoffice :libreoffice
@@ -24,7 +23,8 @@ i3 :urxvt -e vim .config/i3/config
  Conky :urxvt -e vim .config/i3/conkyrc
  Menu :urxvt -e vim .config/i3/menurc  
  ============= 
- Maintain :urxvt -title maintaining -e sh /media/Dati/Github/dotfiles/.scripts/maintain
+Maintenance :urxvt -title maintaining -e sh /media/Dati/Github/dotfiles/.scripts/maintain
+ Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  ============= 
  Upgrade :urxvt -e yaourt -Syyua --noconfirm && i3-msg restart
  Lock :i3lock -d -p default -i /media/Dati/Dropbox/Wallpapers/suburb.png
