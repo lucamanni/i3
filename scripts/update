@@ -1,6 +1,43 @@
 #!/bin/sh
 
 notify-send -a "Available Updates" -u normal "$(yaourt -Qu)"
-sleep 1 && yaourt -Qu > Documenti/updates
-sleep 2 && termite -e "yaourt -Syyua --noconfirm" && i3-msg restart
+sleep 1 && yaourt -Qu > ~/Documenti/updates
+yaourt -Syyua --noconfirm
+echo "==> Cleaning Kodi"
+sudo /bin/rm -rfv ~/.kodi/temp/*    		
+echo "==> Removing Flash Player Cache"
+sudo /bin/rm -rfv ~/.adobe/*
+sudo /bin/rm -rfv /root/.adobe/*
+sudo /bin/rm -rfv ~/.macromedia/*
+sudo /bin/rm -rfv /root/.macromedia/*
+echo "==> Cleaning Cache"
+#find /media/Winzoz/Users/Luca/Videos/Web\ Cam/ -name '*.jpg' -print0 | xargs -0 /bin/rm -rfv
+#sudo /bin/rm -rfv ~/.cache/*
+sudo /bin/rm -rfv /root/.cache/*
+sudo /bin/rm -rfv ~/.dvdcss/*
+sudo /bin/rm -rfv ~/.thunderbird/*.default/ImapMail/*
+echo "==> Cleaning Trash"
+sudo /bin/rm -rfv ~/.local/share/Trash/*
+sudo /bin/rm -rfv /root/.local/share/Trash/*
+sudo /bin/rm -rfv /tmp/*part
+sudo /bin/rm -rfv /home/.Trash-0/*
+sudo /bin/rm -rfv /media/Dati/*.Bin/*
+sudo /bin/rm -rfv /media/Dati/System*/*
+echo "==> Cleaning Ram"
+sh ~/.scripts/clear-cache.sh
+echo  "==> Optimizing Pacman"
+yaourt -Scc
+sudo pacman -Scc
+sudo pacman-db-upgrade
+sudo pacman-optimize
+sync
+sudo updatedb
+echo  "==> Optimizing Firefox"
+sh ~/.scripts/datafox
+echo  "==> Optimizing Chromium"
+sh ~/.scripts/datachrome
+echo
+sudo /bin/rm -rfv /var/lib/pacman/db.lck
+i3-msg restart
 notify-send -a "Done!" -u normal "Your system is updated"
+sleep 2 && killall urxvt

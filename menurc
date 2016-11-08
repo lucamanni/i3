@@ -1,4 +1,5 @@
  ============= 
+ Chromium :chromium
  Facebook :firefox https://www.facebook.com/
  Whatsapp :whatsapp
  KeePass :keepassx --keyfile /media/Dati/Dropbox/Computer/KeePass/luca /media/Dati/Dropbox/Computer/KeePass/Luca.kdbx
@@ -6,14 +7,14 @@
  Gimp :gimp
  Photos :shotwell
  Gparted :sudo gparted
+ Bleachbit #:sudo bleachbit
+ Bleachbit:bleachbit
  Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
  Dropbox :dropbox
  Kodi :kodi
  Libreoffice :libreoffice
- Serie TV:urxvt -e vim .kodi/userdata/addon_data/plugin.video.streamondemand/series.xml
- Quiz:chromium http://www.quiz-concorsi-online.com/quiz_concorsi.php?pgCode=G28I220R289&id_concorso=289&js_status=js_is_on
- Errate: urxvt -e vim /home/luca/ERRATE
  VirtualBox: /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
+ Serie TV:urxvt -e vim .kodi/userdata/addon_data/plugin.video.streamondemand/series.xml
  TV: vlc http://bit.ly/m3ubyinfogw
  ============= 
  Onboard :onboard  

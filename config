@@ -70,8 +70,10 @@ exec $nsi udiskie -aNqs -f thunar &
 exec $nsi pulseaudio --start &
 exec $nsi rofi -d &
 exec $nsi xfce4-power-manager &
-exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
+#exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
+exec $nsi xflux -l 40.6 -g 17.0 -k 2000 &
+exec $nsi dropbox &
 #exec $nsi sleep 4 && $scripts/screensaver &
 #exec $nsi onboard &
 # }}}
@@ -97,19 +99,6 @@ bindsym $mod+space focus mode_toggle
 
 bindsym $r $mod+Tab exec $nsi rofi -show window -font "Tamsyn 12" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
 bindsym $r $mod+$alt+m exec $nsi rofi -show run -font "Tamsyn 12" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
-# }}}
-# {{{ Resize
-mode "resize" {
-        bindsym Right resize shrink width 10 px or 10 ppt
-        bindsym Up resize grow height 10 px or 10 ppt
-        bindsym Down resize shrink height 10 px or 10 ppt
-        bindsym Left resize grow width 10 px or 10 ppt
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $alt+r mode "resize"
 # }}}
 # {{{ Workspaces
 set $WS1 1:
@@ -373,6 +362,19 @@ mode "$mode_info" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+# }}}
+# {{{ Resize
+mode "resize" {
+        bindsym Right resize shrink width 10 px or 10 ppt
+        bindsym Up resize grow height 10 px or 10 ppt
+        bindsym Down resize shrink height 10 px or 10 ppt
+        bindsym Left resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $alt+r mode "resize"
 # }}}
 # {{{ Exit
 bindsym $alt+q mode "$mode_system"
