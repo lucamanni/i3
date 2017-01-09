@@ -73,7 +73,7 @@ exec $nsi xfce4-power-manager &
 #exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
 exec $nsi xflux -l 40.6 -g 17.0 -k 2000 &
-exec $nsi dropbox &
+#exec $nsi dropbox &
 #exec $nsi sleep 4 && $scripts/screensaver &
 #exec $nsi onboard &
 # }}}
@@ -148,6 +148,7 @@ assign [title="Messenger"]                                  $WS4
 assign [instance="crx_bgkodfmeijboinjdegggmkbkjfiagaan"]    $WS4
 assign [class="Telegram"]                                   $WS4
 assign [class="Skype"]                                      $WS4
+assign [class="Franz"]                                      $WS4
 assign [class="Viewnior"]                                   $WS5
 assign [class="Gpicview"]                                   $WS5
 assign [class="Gimp"]                                       $WS5
@@ -220,6 +221,7 @@ for_window [class="mplayer2"]                               focus
 for_window [class="Vlc"]                                    focus
 for_window [class="bomi"]                                   focus
 for_window [class="mpv"]                                    focus
+for_window [class="Franz"]                                  focus
 for_window [class="Opera"]                                  focus
 for_window [class="Pragha"]                                 focus
 for_window [instance="libreoffice"]                         focus
@@ -312,6 +314,8 @@ bindsym $r $mod+$alt+w            exec $nsi firefox
 bindsym $r $mod+$alt+t            exec $nsi thunderbird
 bindsym    $mod+p                 exec $nsi thunar
 bindsym    $mod+$alt+p            exec $nsi sudo thunar
+bindsym    $mod++l                exec $nsi xrandr --output LVDS1 --off --output HDMI1 --auto && nitrogen --restore && pactl set-card-profile 0 output:hdmi-surround
+bindsym    $mod+$alt+l            exec $nsi xrandr --output HDMI1 --off --output LVDS1 --auto && nitrogen --restore
 bindsym $r $mod+s                 exec $nsi spotify, workspace $WS7
 bindsym $r $mod+m                 exec $nsi pragha
 #bindsym $r $mod+d                 exec $nsi mygtkmenu -- .mygtkmenu.txt

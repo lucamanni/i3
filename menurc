@@ -1,7 +1,7 @@
  ============= 
  Chromium :chromium
  Facebook :firefox https://www.facebook.com/
- Whatsapp :whatsapp
+ Messages :franz-bin
  KeePass :keepassx --keyfile /media/Dati/Dropbox/Computer/KeePass/luca /media/Dati/Dropbox/Computer/KeePass/Luca.kdbx
  Mail :thunderbird
  Gimp :gimp
@@ -22,6 +22,7 @@ i3 :urxvt -e vim .config/i3/config
  Bar :urxvt -e vim .config/i3/scripts/i3barconky  
  Conky :urxvt -e vim .config/i3/conkyrc
  Menu :urxvt -e vim .config/i3/menurc  
+ Screen :lxrandr  
  ============= 
 Maintenance :urxvt -title maintaining -e sh /media/Dati/Github/dotfiles/.scripts/maintain
  Github :urxvt -title github -e sh /media/Dati/Github/dotfiles/.scripts/github
