@@ -20,7 +20,7 @@ workspace_auto_back_and_forth yes
 # }}}
 # {{{ Appearance
 # Font
-font pango:Terminus 11px
+font pango:xos4 Terminess Powerline 9px
 # Layout colors                 background          fg        border
 client.focused                  "#242C33" "#242C33" "#ff797b" "#242c33"
 client.focused_inactive         "#242C33" "#242c33" "#aaaaaa" "#242c33"
@@ -37,7 +37,7 @@ bar {
         i3bar_command /usr/bin/i3bar
         status_command exec $scripts/i3barconky
         
-        font pango: Tamsyn, Icon 9
+        font pango: xos4 Terminess Powerline, Icon 9
         position top
         colors {
             background          "#242C33"
@@ -60,7 +60,7 @@ new_float normal
 bindsym $mod+y exec $nsi i3-msg border toggle
 # }}}
 # {{{ Autostart
-exec $nsi $scripts/light &
+#exec $nsi $scripts/light &
 exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -72,7 +72,7 @@ exec $nsi rofi -d &
 exec $nsi xfce4-power-manager &
 #exec $nsi remind -z -k'notify-send -a "Warning!" -u critical %s &' ~/.reminders &
 exec $nsi mpd ~/.mpd/mpd.conf &
-exec $nsi xflux -l 40.6 -g 17.0 -k 2000 &
+#exec $nsi xflux -l 40.6 -g 17.0 -k 2000 &
 #exec $nsi dropbox &
 #exec $nsi sleep 4 && $scripts/screensaver &
 #exec $nsi onboard &
@@ -97,8 +97,8 @@ bindsym $alt+plus layout toggle split
 bindsym $mod+Control+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-bindsym $r $mod+Tab exec $nsi rofi -show window -font "Tamsyn 12" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
-bindsym $r $mod+$alt+m exec $nsi rofi -show run -font "Tamsyn 12" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
+bindsym $r $mod+Tab exec $nsi rofi -show window -font "xos4 Terminess Powerline 13" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
+bindsym $r $mod+$alt+m exec $nsi rofi -show run -font "xos4 Terminess Powerline 13" -fg "#bbbbbb" -bg "#242c33" -hlfg "#ffffff" -hlbg "#c64742" -o 10 -hide-scrollbar -separator-style solid -line-margin 3 -bw 1 -bc "#565656" -width 300 -bg-active "#242c33" -fg-active "#258ad1" -hlfg-active "#ffffff" -bghl-active "258ad1"  
 # }}}
 # {{{ Workspaces
 set $WS1 1:
@@ -347,8 +347,8 @@ bindsym $r $mod+Shift+x           exec $nsi class
 bindsym $r $mod+x                 exec $nsi xkill
 bindsym $r Print                  exec $nsi $scripts/screenshot.sh
 bindsym $r $mod+h                 exec $nsi urxvt -title htop -e sudo htop
-bindsym $r $alt+m                 exec $nsi dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'Tamsyn' -f -h 16 -p 'run application:'
-bindsym $r $alt+n                 exec $nsi sudo dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#ff797b' -sb '#242C33' -fn 'Tamsyn' -f -h 16 -p 'run application as root:'
+bindsym $r $alt+m                 exec $nsi dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'xos4 Terminess Powerline' -f -h 16 -p 'run application:'
+bindsym $r $alt+n                 exec $nsi sudo dmenu_run -nb '#242C33' -nf '#bbbbbb' -sf '#ff797b' -sb '#242C33' -fn 'xos4 Terminess Powerline' -f -h 16 -p 'run application as root:'
 bindsym $r $mod+$alt+space        exec $nsi xfce4-appfinder
 #bindsym $r $mod+$alt+space        exec $nsi j4-dmenu-desktop --dmenu="dmenu -nb '#242C33' -nf '#bbbbbb' -sf '#8badf9' -sb '#242C33' -fn 'tewi' -f -h 16 -p 'run application:'" --term="urxvt"
 # }}}
