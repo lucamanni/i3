@@ -60,7 +60,7 @@ new_float normal
 bindsym $mod+y exec $nsi i3-msg border toggle
 # }}}
 # {{{ Autostart
-#exec $nsi $scripts/light &
+exec $nsi $scripts/light &
 exec $nsi nitrogen --restore &
 exec $nsi compton --backend glx --paint-on-overlay --vsync opengl-mswc -b &
 exec $nsi /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
@@ -150,6 +150,7 @@ assign [class="Telegram"]                                   $WS4
 assign [class="Skype"]                                      $WS4
 assign [class="Franz"]                                      $WS4
 assign [class="Viewnior"]                                   $WS5
+assign [class="Et"]                                         $WS5
 assign [class="Gpicview"]                                   $WS5
 assign [class="Gimp"]                                       $WS5
 assign [class="Shotwell"]                                   $WS5
@@ -208,6 +209,7 @@ assign [class="Kodi"]                                       $WS10
 
 for_window [class="URxvt"]                                  focus
 for_window [class="Termite"]                                floating enable, move absolute center
+for_window [title="Preferenze Thunderbird"]                 floating enable, border normal, move absolute center
 for_window [class="chromium"]                               focus
 #for_window [class="Keepassx"]                               focus
 for_window [class="Firefox"]                                focus
@@ -227,6 +229,7 @@ for_window [class="Pragha"]                                 focus
 for_window [instance="libreoffice"]                         focus
 for_window [class="Xfce4-taskmanager"]                      focus
 for_window [class="nuvolaplayer3"]                          focus
+for_window [class="Et"]                                     focus
 for_window [title="Deezer Shortcut"]                        focus
 for_window [class="nuvolaplayer3-deezer"]                   focus
 for_window [class="nuvolaplayer3-google-play-music"]        focus
@@ -309,8 +312,8 @@ bindsym    $mod+$alt+f            exec $nsi urxvt -title "ranger [#]" -e sudo ra
 bindsym    $mod+Control+u         exec $nsi "urxvt -title updating -e yaourt -Syyua --noconfirm && i3-msg restart"
 bindsym    $mod+n                 exec $nsi urxvt -title music -e ncmpcpp
 bindsym $r $mod+t                 exec $nsi urxvt -title Mail -e mutt
-bindsym $r $mod+w                 exec $nsi chromium, workspace $WS2
-bindsym $r $mod+$alt+w            exec $nsi firefox
+#bindsym $r $mod+w                 exec $nsi chromium, workspace $WS2
+bindsym $r $mod+w            exec $nsi firefox
 bindsym $r $mod+$alt+t            exec $nsi thunderbird
 bindsym    $mod+p                 exec $nsi thunar
 bindsym    $mod+$alt+p            exec $nsi sudo thunar

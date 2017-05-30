@@ -24,11 +24,11 @@ ${if_mpd_playing}    {"name": "mpd_a", "full_text": "$mpd_artist",              
 
 {"name": "volume",   "full_text": "${exec /home/luca/.config/i3/scripts/pacvol.sh display}",                    "color": "\#8BADF9", "separator_block_width": 4},
 
-${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "separator", "full_text": "│",                       "color": "\#565656", "separator_block_width": 4},  ${endif}
-${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_down_i","full_text": " ",                      "color": "\#A4DC6A", "separator_block_width": 1},  ${endif}
-${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_down",  "full_text": "${downspeed wlp2s0}",     "color": "\#A4DC6A"},                              ${endif}
-${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_up_i",  "full_text": " ",                      "color": "\#FF797b", "separator_block_width": 1},  ${endif}
-${if_existing /sys/class/net/wlp2s0/operstate up} {"name": "net_up",    "full_text": "${upspeed wlp2s0}",       "color": "\#FF797b", "separator_block_width": 4},  ${endif}
+${if_existing /sys/class/net/enp4s0/operstate up} {"name": "separator", "full_text": "│",                       "color": "\#565656", "separator_block_width": 4},  ${endif}
+${if_existing /sys/class/net/enp4s0/operstate up} {"name": "net_down_i","full_text": " ",                      "color": "\#A4DC6A", "separator_block_width": 1},  ${endif}
+${if_existing /sys/class/net/enp4s0/operstate up} {"name": "net_down",  "full_text": "${downspeed enp4s0}",     "color": "\#A4DC6A"},                              ${endif}
+${if_existing /sys/class/net/enp4s0/operstate up} {"name": "net_up_i",  "full_text": " ",                      "color": "\#FF797b", "separator_block_width": 1},  ${endif}
+${if_existing /sys/class/net/enp4s0/operstate up} {"name": "net_up",    "full_text": "${upspeed enp4s0}",       "color": "\#FF797b", "separator_block_width": 4},  ${endif}
 {"name": "separator", "full_text": "│",                                                                          "color": "\#565656", "separator_block_width": 4},
 #{"name": "cpu",     "full_text": "  {${cpu cpu1}.${cpu cpu2}.${cpu cpu3}.${cpu cpu4}}",                       "color": "\#8BC3E7"},
 {"name": "cpu",      "full_text": "  ${cpu}%",                                                                 "color": "\#8BC3E7", "separator_block_width": 4},

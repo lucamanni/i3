@@ -1,5 +1,4 @@
  ============= 
- Chromium :chromium
  Facebook :firefox https://www.facebook.com/
  Messages :franz-bin
  KeePass :keepassx --keyfile /media/Dati/Dropbox/Computer/KeePass/luca /media/Dati/Dropbox/Computer/KeePass/Luca.kdbx
@@ -13,7 +12,6 @@
  Kodi :kodi
  Libreoffice :libreoffice
  VirtualBox: /usr/lib/virtualbox/VirtualBox --comment "Windows 7" --startvm "52350293-fbe0-4c1e-b07e-f158bd79b98e"
- Serie TV:urxvt -e vim .kodi/userdata/addon_data/plugin.video.streamondemand/series.xml
  TV: vlc http://bit.ly/m3ubyinfogw
  ============= 
  Onboard :onboard  
