@@ -1,9 +1,9 @@
-#------------------------------------------------
-#--            	 Full Color I3                 --
-#--               by Luca Manni                --
-#--     http://lucamanni88.deviantart.com/     --
-#--     https://github.com/lucamanni           --
-#------------------------------------------------
+#-----------------------------------------------
+#--            	  Full Color I3               --
+#--               by Luca Manni               --
+#--       https://github.com/lucamanni/       --
+#--    https://lucamanni88.deviantart.com/    --
+#-----------------------------------------------
 
 # {{{ Variables
 set $mod Mod4
@@ -48,8 +48,8 @@ bar {
             inactive_workspace  "#242c33" "#242c33" "#CACACA"
             urgent_workspace    "#242c33" "#242c33" "#ff9d17" #"#f3ea0c"
         }
-
 }
+
 # Titlebars
 new_window 1pixel
 #new_window normal
